@@ -1,5 +1,5 @@
 #include <ctype.h>
-#include "PhysicsSceneCamera.h"
+#include "physics_scene_camera.h"
 #include "foundation/PxMat33.h"
 
 using namespace physx;
@@ -7,17 +7,10 @@ using namespace physx;
 namespace PhysicsSceneRender
 {
 	Camera::Camera(const physx::PxVec3 &eye, const physx::PxVec3 &dir)
-	{
-		m_eye = eye;
-		m_dir = dir.getNormalized();
-		m_mouse_x = 0;
-		m_mouse_x = 0;
-	}
-
-	Camera::~Camera()
+		:m_eye(eye), m_dir(dir.getNormalized()), m_mouse_x(0), m_mouse_y(0)
 	{
 	}
-
+	
 	void Camera::HandleMouse(int x, int y)
 	{
 		m_mouse_x = x;
@@ -26,15 +19,14 @@ namespace PhysicsSceneRender
 
 	bool Camera::HandleKey(unsigned char key, float speed /*= 1.0f*/)
 	{
-		//这个应该是向右的方向
 		PxVec3 view_y = m_dir.cross(PxVec3(0, 1, 0)).getNormalized();
 		switch (toupper(key))
 		{
-		case 'W': m_eye += m_dir * speed; break;
-		case 'S': m_eye -= m_dir * speed; break;
-		case 'A': m_eye -= view_y * speed; break;
-		case 'D': m_eye += view_y * speed; break;
-		default :	return false;
+			case 'W': m_eye += m_dir * speed; break;
+			case 'S': m_eye -= m_dir * speed; break;
+			case 'A': m_eye -= view_y * speed; break;
+			case 'D': m_eye += view_y * speed; break;
+			default:	return false;
 		}
 
 		return true;

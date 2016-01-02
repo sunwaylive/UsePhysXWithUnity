@@ -4,9 +4,9 @@
 #include <vector>
 #include "PxPhysicsAPI.h"
 
-#include "PhysicsSceneRender.h"
-#include "PhysicsSceneCamera.h"
-#include "PhysicsSceneManager.h"
+#include "physics_scene_render.h"
+#include "physics_scene_camera.h"
+#include "physics_scene_manager.h"
 
 using namespace physx;
 
@@ -46,14 +46,13 @@ namespace
 
 		PhysicsSceneRender::StartRender(psr_camera->GetEye(), psr_camera->GetDir());
 
-		//解析场景， 渲染actor
+		//analyze the scene, render every actor
 		PxScene *scene;
 		PxGetPhysics().getScenes(&scene, 1);
 		PxU32 nbActors = scene->getNbActors(PxActorTypeSelectionFlag::eRIGID_DYNAMIC | PxActorTypeSelectionFlag::eRIGID_STATIC);
 		if (nbActors != 0)
 		{
 			std::vector<PxRigidActor*> actors(nbActors);
-			//获取场景中所有actors
 			scene->getActors(PxActorTypeSelectionFlag::eRIGID_DYNAMIC | PxActorTypeSelectionFlag::eRIGID_STATIC, (PxActor**)&actors[0], nbActors);
 			PhysicsSceneRender::RenderActors(&actors[0], (PxU32)actors.size(), true);
 		}

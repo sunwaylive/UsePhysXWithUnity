@@ -25,10 +25,10 @@ using namespace physx;
 //	#define MAX_JUMP_HEIGHT			4.0f
 #define MAX_JUMP_HEIGHT			    0.0f
 
-static const float gScaleFactor      = 1.0f;
-static const float gStandingSize     = 20.00f * gScaleFactor;
-static const float gCrouchingSize    = 5.0f * gScaleFactor;
-static const float gControllerRadius = 3.0f * gScaleFactor;
+static const float kScaleFactor      = 1.0f;
+static const float kStandingSize     = 20.00f * kScaleFactor;
+static const float kCrouchingSize    = 5.0f   * kScaleFactor;
+static const float kControllerRadius = 3.0f   * kScaleFactor;
 
 class PhysicsSceneManager
 {
@@ -38,23 +38,23 @@ public:
 
 public:
 	void ResetData();
-	void StepPhysics(bool interactive);
 	bool InitPhysics();
 	void CleanPhysics();
+	void StepPhysics(bool interactive);
 	void KeyPress(const char key, const PxTransform& camera);
 
-	bool InitSceneFromFile(); //从客户端导出的文件中读取配置，生成物理场景
-	void InitSceneTest();     //仅在框架搭建阶段， 作测试用
+	bool InitSceneFromFile(); //load a scene from a file exported from Unity3D
+	void InitSceneTest();     //for test only
 
 	bool CanStandup();
 	void ResizeController(PxController* player);
 	void MoveController();
 
 private:
+	PxRigidDynamic* CreateDynamicBall(const PxTransform& t, const PxGeometry& geometry, const PxVec3& velocity);
 	void AddGround();
 	void AddStack(const PxTransform& t, PxU32 size, PxReal halfExtent);
 	void AddPlayer();
-	PxRigidDynamic* CreateDynamicBall(const PxTransform& t, const PxGeometry& geometry, const PxVec3& velocity);
 
 	void AddBoxFromU3D(U3DPhysxBox& box);
 	void AddSphereFromU3D(U3DPhysxSphere& sphere);
@@ -72,9 +72,10 @@ private:
 	PxDefaultAllocator       m_allocator;
 	PxDefaultErrorCallback	 m_error_callback;
 	PxDefaultCpuDispatcher*  m_dispatcher;
-	//box的位置
+	//the z-axis position of the stack of the boxes
 	int                      m_stack_z;
-	//capsule参数
+
+	//parameters for capsule character controller
 	float                    m_scale_factor;
 	PxReal					 m_standing_size;
 	PxReal					 m_crouching_size;

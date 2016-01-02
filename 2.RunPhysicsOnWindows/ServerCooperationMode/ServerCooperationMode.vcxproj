@@ -127,17 +127,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\ProtoGeneratedScrips\Scene.pb.cc" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="PhysicsSceneCamera.cpp" />
-    <ClCompile Include="PhysicsSceneManager.cpp" />
-    <ClCompile Include="PhysicsSceneRender.cpp" />
-    <ClCompile Include="ServerCooperationRender.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="physics_scene_camera.cpp" />
+    <ClCompile Include="physics_scene_manager.cpp" />
+    <ClCompile Include="physics_scene_render.cpp" />
+    <ClCompile Include="server_cooperation_render.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ProtoGeneratedScrips\Scene.pb.h" />
-    <ClInclude Include="PhysicsSceneCamera.h" />
-    <ClInclude Include="PhysicsSceneManager.h" />
-    <ClInclude Include="PhysicsSceneRender.h" />
+    <ClInclude Include="physics_scene_camera.h" />
+    <ClInclude Include="physics_scene_manager.h" />
+    <ClInclude Include="physics_scene_render.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

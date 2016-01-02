@@ -9,7 +9,7 @@ namespace PhysicsSceneRender
 	{
 	public:
 		Camera(const physx::PxVec3 &eye, const physx::PxVec3 &dir);
-		~Camera();
+		~Camera(){};
 
 		void HandleMouse(int x, int y);
 		bool HandleKey(unsigned char key, float speed = 0.7f);

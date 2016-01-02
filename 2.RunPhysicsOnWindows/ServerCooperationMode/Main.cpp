@@ -1,5 +1,6 @@
-#include "PhysicsSceneManager.h"
 #include <iostream>
+#include "physics_scene_manager.h"
+
 #define RENDERFORTEST
 
 PhysicsSceneManager *g_scene_mgr = new PhysicsSceneManager();
@@ -10,7 +11,7 @@ int main()
 	extern void RenderLoop();
 	RenderLoop();
 #else
-	static const PxU32 frameCount = 100;
+	static const PxU32 kframeCount = 100;
 	if (!g_scene_mgr->InitPhysics())
 	{
 		std::cout << "Can't Initialize Scene Manager!" << std::endl;
@@ -19,7 +20,7 @@ int main()
 
 	std::cout << "Successfully Initialized! " << std::endl;
 
-	for (PxU32 i = 0; i < frameCount; i++)
+	for (PxU32 i = 0; i < kframeCount; i++)
 		g_scene_mgr->StepPhysics(false);
 
 	g_scene_mgr->CleanPhysics();

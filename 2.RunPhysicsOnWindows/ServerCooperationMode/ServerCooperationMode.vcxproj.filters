@@ -18,37 +18,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsSceneManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsSceneRender.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="PhysicsSceneCamera.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="ServerCooperationRender.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="..\ProtoGeneratedScrips\Scene.pb.cc">
       <Filter>ProtoScrips</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_scene_camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_scene_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="physics_scene_render.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="server_cooperation_render.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PhysicsSceneManager.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsSceneRender.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="PhysicsSceneCamera.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\ProtoGeneratedScrips\Scene.pb.h">
       <Filter>ProtoScrips</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_scene_camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_scene_manager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="physics_scene_render.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

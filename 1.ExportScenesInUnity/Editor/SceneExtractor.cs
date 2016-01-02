@@ -194,14 +194,6 @@ namespace Scene
 	        Debug.Log("Mesh ID: " + mesh.id);
             Debug.Log("Mesh Vertex num: " + mesh.vertex_count);
             
-            ////test triangle mesh
-            //int face_num = mesh_col.sharedMesh.triangles.Length;
-            //Debug.Log("total triangles num " + face_num);
-            ////for (int i = 0; i < face_num; ++i)
-            ////{
-            ////    Debug.Log("Triangle " + i + " ");
-            ////}
-
 	        return mesh;
 	    }
 	}

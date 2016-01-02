@@ -1,4 +1,4 @@
-#include "PhysicsSceneManager.h"
+#include "physics_scene_manager.h"
 
 PhysicsSceneManager::PhysicsSceneManager()
 {
@@ -21,7 +21,7 @@ PhysicsSceneManager::~PhysicsSceneManager()
 
 bool PhysicsSceneManager::InitPhysics()
 {
-	//foundation 和 physics在很多地方有用到， 要在一开始创建出来
+	//foundation and physics must be created at initialization stage
 	m_foundation = PxCreateFoundation(PX_PHYSICS_VERSION, m_allocator, m_error_callback);
 	if (m_foundation == NULL)
 	{
@@ -38,33 +38,32 @@ bool PhysicsSceneManager::InitPhysics()
 	}
 
 	m_cooking = PxCreateCooking(PX_PHYSICS_VERSION, *m_foundation, PxCookingParams(PxTolerancesScale()));
-	if (!m_cooking)
+	if (m_cooking == NULL)
 	{
 		std::cerr << "PxCreateCooking failed!" << std::endl;
 		exit(0);
 	}
 
-	//场景描述符
+	//scene descriptor
 	PxSceneDesc sceneDesc(m_physics->getTolerancesScale());
 	sceneDesc.gravity       = PxVec3(0.0f, -9.18f, 0.0f);
 	m_dispatcher            = PxDefaultCpuDispatcherCreate(2);
 	sceneDesc.cpuDispatcher = m_dispatcher;
 	sceneDesc.filterShader  = PxDefaultSimulationFilterShader;
 
-	//创建场景和默认材质
+	//create scene and default material
 	m_scene = m_physics->createScene(sceneDesc);
 	m_material = m_physics->createMaterial(0.5f, 0.5f, 0.6f);
 
-	//初始化角色控制管理器
+	//character controller
 	m_controller_mgr = PxCreateControllerManager(*m_scene);
 	//When activated, the CCT module will automatically try to resolve the penetration, and move the CCT to a safe place where it does not overlap other objects anymore
-	//因为从客户端美术做的场景中collider是有重叠的， 所以要关掉这个特性
+	//Because there exists overlapped colliders in scenes, so we must close this feature
 	//m_controller_mgr->setOverlapRecoveryModule(true);
 	//m_controller_mgr->setPreciseSweeps(false);
 
-	//TODO:在这里创建场景
 	//InitSceneTest();
-	//从客户端导出的文件中初始化场景
+
 	InitSceneFromFile();
 
 	return true;
@@ -79,7 +78,6 @@ bool PhysicsSceneManager::InitSceneFromFile()
 	{
 		std::cout << "can't open file " << std::endl;
 		exit(0);
-		return false;
 	}
 
 	//read file from client
@@ -92,7 +90,7 @@ bool PhysicsSceneManager::InitSceneFromFile()
 
 	std::cout << "Box Collider: " << cur_scene.box_collider_size() << std::endl;
 	std::cout << "Sphere Collider: " << cur_scene.sphere_collider_size() << std::endl;
-	std::cout << "Capsule Collider: " << cur_scene.capsule_collider_size() << std::endl;
+	std::cout << "Capsule collider: " << cur_scene.capsule_collider_size() << std::endl;
 	std::cout << "Mesh  Collider: " << cur_scene.mesh_collider_size() << std::endl;
 
 	for (int i = 0; i < cur_scene.box_collider_size(); ++i)
@@ -127,14 +125,14 @@ void PhysicsSceneManager::InitSceneTest()
 	AddGround();
 	AddPlayer();
 
-	//创建box
+	//create boxes
 	for (PxU32 i = 0; i < 1; i++)
 		AddStack(PxTransform(PxVec3(0, 0, m_stack_z -= 10.0f)), 10, 2.0f);
 }
 
+//test whether the player can standup
 bool PhysicsSceneManager::CanStandup()
 {
-	//检测玩家是否能站起来
 	bool isCanStandup = true;
 	PxSceneReadLock scopedLock(*m_scene);
 	PxCapsuleController* capsuleCtrl = static_cast<PxCapsuleController*>(m_player);
@@ -162,11 +160,11 @@ void PhysicsSceneManager::ResizeController(PxController *player)
 	m_is_crouching = !m_is_crouching;
 	PxSceneWriteLock scopeLock(*m_scene);
 	if (m_is_crouching)
-		player->resize(m_crouching_size);      //下蹲
+		player->resize(m_crouching_size);      //crouch
 	else
 	{
 		if(CanStandup())
-			player->resize(m_standing_size);  //站立
+			player->resize(m_standing_size);  //stand up
 	}
 }
 
@@ -177,8 +175,9 @@ void PhysicsSceneManager::MoveController()
 
 void PhysicsSceneManager::AddPlayer()
 {
-	//创建胶囊体
-	PxControllerDesc* cDesc; //下面这个的父类
+	PxControllerDesc* cDesc; //the super class of the folling one 
+
+	//Capsule Description
 	PxCapsuleControllerDesc capsuleDesc;
 	capsuleDesc.height              = m_standing_size;
 	capsuleDesc.radius              = m_raduis;
@@ -206,7 +205,7 @@ void PhysicsSceneManager::AddPlayer()
 
 void PhysicsSceneManager::AddGround()
 {
-	//创建地平面
+	//create the ground plane
 	PxRigidStatic* groundPlane = PxCreatePlane(*m_physics, PxPlane(0, 1, 0, 0), *m_material);
 	m_scene->addActor(*groundPlane);
 }
@@ -214,7 +213,7 @@ void PhysicsSceneManager::AddGround()
 void PhysicsSceneManager::AddStack(const PxTransform& t, PxU32 size, PxReal halfExtent)
 {
 	PxShape *shape = m_physics->createShape(PxBoxGeometry(halfExtent, halfExtent, halfExtent), *m_material);
-	//下面好多actor都用到这个shape了， 引用计数管理
+	//a lot of actors use the shape, use reference count inside.
 	for (int i = 0; i < size; ++i)
 	{
 		for (int j = 0; j<size - i; j++)
@@ -345,8 +344,8 @@ void PhysicsSceneManager::AddMeshFromU3D(U3DPhysxMesh& mesh)
 
 void PhysicsSceneManager::StepPhysics(bool)
 {
-	m_scene->simulate(1 / 60.f); //获取1/60 s之后世界的状态
-	m_scene->fetchResults(true); //必须成对使用
+	m_scene->simulate(1 / 60.f); //get the world state after 1/60.f second
+	m_scene->fetchResults(true); //these two line must be used in pair
 }
 
 void PhysicsSceneManager::CleanPhysics()
@@ -367,12 +366,12 @@ void PhysicsSceneManager::KeyPress(const char key, const PxTransform& camera)
 {
 	switch (toupper(key))
 	{
-	case 'B':	AddStack(PxTransform(PxVec3(10, 10, m_stack_z -= 10.0f)), 10, 2.0f);						break;
-	case 'L':	CreateDynamicBall(camera, PxSphereGeometry(3.0f), camera.rotate(PxVec3(0, 0, -1)) * 200);	break;
-	case 'C':   ResizeController(m_player);                                                                 break;
-	case '1':   m_player->move(PxVec3(1.0f, 0.0f, 0.0f), 0.5f, 0.1, PxControllerFilters());                 break;
-	case '2':   m_player->move(PxVec3(-1.0f, 0.0f, 0.0f), 0.5f, 0.1, PxControllerFilters());                break;
+		case 'B':	AddStack(PxTransform(PxVec3(10, 10, m_stack_z -= 10.0f)), 10, 2.0f);						break;
+		case 'L':	CreateDynamicBall(camera, PxSphereGeometry(3.0f), camera.rotate(PxVec3(0, 0, -1)) * 200);	break;
+		case 'C':   ResizeController(m_player);                                                                 break;
+		case '1':   m_player->move(PxVec3(1.0f, 0.0f, 0.0f), 0.5f, 0.1, PxControllerFilters());                 break;
+		case '2':   m_player->move(PxVec3(-1.0f, 0.0f, 0.0f), 0.5f, 0.1, PxControllerFilters());                break;
 
-	default: break;
+		default: break;
 	}
 }
