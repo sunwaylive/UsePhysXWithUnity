@@ -15,12 +15,7 @@ extern PhysicsSceneManager *g_scene_mgr;
 namespace
 {
 	PhysicsSceneRender::Camera* psr_camera;
-
-	void MotionCallback(int x, int y)
-	{
-		psr_camera->HandleMotion(x, y);
-	}
-	
+		
 	void KeyboardCallback(unsigned char key, int x, int y)
 	{
 		if (key == 27)
@@ -30,8 +25,19 @@ namespace
 			g_scene_mgr->KeyPress(key, psr_camera->GetTransform());
 	}
 
+	void MotionCallback(int x, int y)
+	{
+		psr_camera->HandleMotion(x, y);
+	}
+
+	void PassiveMotionCallback(int x, int y)
+	{
+		psr_camera->HandlePassiveMotion(x, y);
+	}
+
 	void MouseCallback(int button, int state, int x, int y)
 	{
+		std::cout << x <<" " <<y << std::endl;
 		psr_camera->HandleMouse(x, y);
 	}
 
@@ -73,12 +79,12 @@ void RenderLoop()
 
 	PhysicsSceneRender::SetupDefaultWindow("Server Render For Debug");
 	PhysicsSceneRender::SetupDefaultRenderState();
-
 	glutIdleFunc(IdleCallback);
 	glutDisplayFunc(RenderCallback);
 	glutKeyboardFunc(KeyboardCallback);
 	glutMouseFunc(MouseCallback);
 	glutMotionFunc(MotionCallback);
+	glutPassiveMotionFunc(PassiveMotionCallback);//no mouse button is clicked
 	MotionCallback(0, 0);
 
 	atexit(ExitCallback);

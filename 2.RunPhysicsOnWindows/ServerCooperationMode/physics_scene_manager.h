@@ -40,6 +40,8 @@ public:
 	void ResetData();
 	bool InitPhysics();
 	void CleanPhysics();
+
+	void SetupPvdDebug();
 	void StepPhysics(bool interactive);
 	void KeyPress(const char key, const PxTransform& camera);
 
@@ -62,25 +64,26 @@ private:
 	void AddMeshFromU3D(U3DPhysxMesh& mesh);
 
 private:
-	PxFoundation*            m_foundation;
-	PxPhysics*               m_physics;
-	PxCooking*               m_cooking;
-	PxScene*                 m_scene;
-	PxMaterial*              m_material;
-	PxControllerManager*     m_controller_mgr;
-	PxController*            m_player;
-	PxDefaultAllocator       m_allocator;
-	PxDefaultErrorCallback	 m_error_callback;
-	PxDefaultCpuDispatcher*  m_dispatcher;
+	PxFoundation*                m_foundation;
+	PxPhysics*                   m_physics;
+	PxVisualDebuggerConnection * m_pvdCon;
+	PxCooking*                   m_cooking;
+	PxScene*                     m_scene;
+	PxMaterial*                  m_material;
+	PxControllerManager*         m_controller_mgr;
+	PxController*                m_player;
+	PxDefaultAllocator           m_allocator;
+	PxDefaultErrorCallback	     m_error_callback;
+	PxDefaultCpuDispatcher*      m_dispatcher;
 	//the z-axis position of the stack of the boxes
-	int                      m_stack_z;
+	int                          m_stack_z;
 
 	//parameters for capsule character controller
-	float                    m_scale_factor;
-	PxReal					 m_standing_size;
-	PxReal					 m_crouching_size;
-	float                    m_raduis;
-	bool					 m_do_standup;
-	bool					 m_is_crouching;
+	float                        m_scale_factor;
+	PxReal					     m_standing_size;
+	PxReal					     m_crouching_size;
+	float                        m_raduis;
+	bool					     m_do_standup;
+	bool					     m_is_crouching;
 };
 

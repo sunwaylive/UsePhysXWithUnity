@@ -44,6 +44,8 @@ bool PhysicsSceneManager::InitPhysics()
 		exit(0);
 	}
 
+	SetupPvdDebug();
+
 	//scene descriptor
 	PxSceneDesc sceneDesc(m_physics->getTolerancesScale());
 	sceneDesc.gravity       = PxVec3(0.0f, -9.18f, 0.0f);
@@ -63,10 +65,28 @@ bool PhysicsSceneManager::InitPhysics()
 	//m_controller_mgr->setPreciseSweeps(false);
 
 	//InitSceneTest();
-
 	InitSceneFromFile();
 
 	return true;
+}
+
+void PhysicsSceneManager::SetupPvdDebug()
+{
+	// check if PvdConnection manager is available on this platform
+	if (m_physics->getPvdConnectionManager() == NULL)
+		return;
+
+	// setup connection parameters
+	const char*     pvd_host_ip = "127.0.0.1";  // IP of the PC which is running PVD
+	int             port        = 5425;         // TCP port to connect to, where PVD is listening
+	unsigned int    timeout     = 100;          // timeout in milliseconds to wait for PVD to respond,
+	// consoles and remote PCs need a higher timeout.
+	PxVisualDebuggerConnectionFlags connectionFlags = PxVisualDebuggerExt::getAllConnectionFlags();
+
+	// and now try to connect
+	PxVisualDebuggerConnection* theConnection =
+		PxVisualDebuggerExt::createConnection(m_physics->getPvdConnectionManager(),
+		pvd_host_ip, port, timeout, connectionFlags);
 }
 
 bool PhysicsSceneManager::InitSceneFromFile()
@@ -250,9 +270,11 @@ void PhysicsSceneManager::AddBoxFromU3D(U3DPhysxBox& box)
 
 	PxShape *shape = m_physics->createShape(PxBoxGeometry(box.x_extents() * 0.5f, box.y_extents() * 0.5f, box.z_extents() * 0.5), *m_material);
 	
-	PxTransform localTrans(PxVec3(PxReal(box.pos().x()), PxReal(box.pos().y()), PxReal(box.pos().z())));
+	//consider position and rotation(use quaternion)
+	PxTransform localTrans(PxVec3(PxReal(box.pos().x()), PxReal(box.pos().y()), PxReal(box.pos().z())),
+						   PxQuat(box.rotation().x(), box.rotation().y(), box.rotation().z(), box.rotation().w()));
 	PxRigidStatic *actor = m_physics->createRigidStatic(localTrans);
-
+	
 	actor->attachShape(*shape);
 	m_scene->addActor(*actor);
 
@@ -269,7 +291,8 @@ void PhysicsSceneManager::AddSphereFromU3D(U3DPhysxSphere& sphere)
 
 	PxShape *shape = m_physics->createShape(PxSphereGeometry(sphere.radius()), *m_material);
 
-	PxTransform localTrans(PxVec3(PxReal(sphere.pos().x()), PxReal(sphere.pos().y()), PxReal(sphere.pos().z())));
+	PxTransform localTrans(PxVec3(PxReal(sphere.pos().x()), PxReal(sphere.pos().y()), PxReal(sphere.pos().z())),
+						   PxQuat(sphere.rotation().x(), sphere.rotation().y(), sphere.rotation().z(), sphere.rotation().w()));
 	PxRigidStatic *actor = m_physics->createRigidStatic(localTrans);
 
 	actor->attachShape(*shape);
@@ -288,7 +311,8 @@ void PhysicsSceneManager::AddCapsuleFromU3D(U3DPhysxCapsule& capsule)
 	}
 
 	PxShape *shape = m_physics->createShape(PxCapsuleGeometry(capsule.raduis(), capsule.height() * 0.5), *m_material);
-	PxTransform localTrans(PxVec3(PxReal(capsule.pos().x()), PxReal(capsule.pos().y()), PxReal(capsule.pos().z())));
+	PxTransform localTrans(PxVec3(PxReal(capsule.pos().x()), PxReal(capsule.pos().y()), PxReal(capsule.pos().z())),
+						   PxQuat(capsule.rotation().x(), capsule.rotation().y(), capsule.rotation().z(), capsule.rotation().w()));
 	PxRigidStatic *actor = m_physics->createRigidStatic(localTrans);
 
 	actor->attachShape(*shape);
@@ -353,6 +377,8 @@ void PhysicsSceneManager::CleanPhysics()
 	m_scene->release();
 	m_dispatcher->release();
 	PxProfileZoneManager* profileZoneManager = m_physics->getProfileZoneManager();
+	if (m_pvdCon != NULL)
+		m_pvdCon->release();
 
 	m_physics->release();
 	profileZoneManager->release();

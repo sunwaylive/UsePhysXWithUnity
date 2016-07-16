@@ -10,11 +10,11 @@ namespace PhysicsSceneRender
 		:m_eye(eye), m_dir(dir.getNormalized()), m_mouse_x(0), m_mouse_y(0)
 	{
 	}
-	
+
 	void Camera::HandleMouse(int x, int y)
 	{
 		m_mouse_x = x;
-		m_mouse_x = y;
+		m_mouse_y = y;
 	}
 
 	bool Camera::HandleKey(unsigned char key, float speed /*= 1.0f*/)
@@ -22,11 +22,11 @@ namespace PhysicsSceneRender
 		PxVec3 view_y = m_dir.cross(PxVec3(0, 1, 0)).getNormalized();
 		switch (toupper(key))
 		{
-			case 'W': m_eye += m_dir * speed; break;
-			case 'S': m_eye -= m_dir * speed; break;
-			case 'A': m_eye -= view_y * speed; break;
-			case 'D': m_eye += view_y * speed; break;
-			default:	return false;
+		case 'W': m_eye += m_dir * speed; break;
+		case 'S': m_eye -= m_dir * speed; break;
+		case 'A': m_eye -= view_y * speed; break;
+		case 'D': m_eye += view_y * speed; break;
+		default:	return false;
 		}
 
 		return true;
@@ -44,6 +44,10 @@ namespace PhysicsSceneRender
 		int dx = m_mouse_x - x;
 		int dy = m_mouse_y - y;
 
+		// ”Ω«◊™ªªÃ´¡È√Ù¡À
+		dx /= 5;
+		dy /= 5;
+
 		PxVec3 viewY = m_dir.cross(PxVec3(0, 1, 0)).getNormalized();
 
 		PxQuat qx(PxPi * dx / 180.0f, PxVec3(0, 1, 0));
@@ -57,8 +61,14 @@ namespace PhysicsSceneRender
 		m_mouse_y = y;
 	}
 
+	void Camera::HandlePassiveMotion(int x, int y)
+	{
+		m_mouse_x = x;
+		m_mouse_y = y;
+	}
+
 	physx::PxTransform Camera::GetTransform() const
-{
+	{
 		PxVec3 viewY = m_dir.cross(PxVec3(0, 1, 0));
 
 		if (viewY.normalize() < 1e-6f)
@@ -69,12 +79,12 @@ namespace PhysicsSceneRender
 	}
 
 	physx::PxVec3 Camera::GetEye() const
-{
+	{
 		return m_eye;
 	}
 
 	physx::PxVec3 Camera::GetDir() const
-{
+	{
 		return m_dir;
 	}
 }
