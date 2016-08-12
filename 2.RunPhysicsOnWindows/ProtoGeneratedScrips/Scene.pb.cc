@@ -21,9 +21,12 @@ namespace proto {
 
 namespace {
 
-const ::google::protobuf::Descriptor* Position_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Vector3_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Position_reflection_ = NULL;
+  Vector3_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Vector4_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Vector4_reflection_ = NULL;
 const ::google::protobuf::Descriptor* U3DPhysxScene_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   U3DPhysxScene_reflection_ = NULL;
@@ -50,24 +53,42 @@ void protobuf_AssignDesc_Scene_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "Scene.proto");
   GOOGLE_CHECK(file != NULL);
-  Position_descriptor_ = file->message_type(0);
-  static const int Position_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Position, x_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Position, y_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Position, z_),
+  Vector3_descriptor_ = file->message_type(0);
+  static const int Vector3_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3, y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3, z_),
   };
-  Position_reflection_ =
+  Vector3_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Position_descriptor_,
-      Position::default_instance_,
-      Position_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Position, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Position, _unknown_fields_),
+      Vector3_descriptor_,
+      Vector3::default_instance_,
+      Vector3_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector3, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Position));
-  U3DPhysxScene_descriptor_ = file->message_type(1);
+      sizeof(Vector3));
+  Vector4_descriptor_ = file->message_type(1);
+  static const int Vector4_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector4, x_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector4, y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector4, z_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector4, w_),
+  };
+  Vector4_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Vector4_descriptor_,
+      Vector4::default_instance_,
+      Vector4_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector4, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Vector4, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Vector4));
+  U3DPhysxScene_descriptor_ = file->message_type(2);
   static const int U3DPhysxScene_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxScene, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxScene, scene_name_),
@@ -87,12 +108,13 @@ void protobuf_AssignDesc_Scene_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(U3DPhysxScene));
-  U3DPhysxSphere_descriptor_ = file->message_type(2);
-  static const int U3DPhysxSphere_offsets_[4] = {
+  U3DPhysxSphere_descriptor_ = file->message_type(3);
+  static const int U3DPhysxSphere_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxSphere, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxSphere, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxSphere, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxSphere, radius_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxSphere, rotation_),
   };
   U3DPhysxSphere_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -105,14 +127,15 @@ void protobuf_AssignDesc_Scene_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(U3DPhysxSphere));
-  U3DPhysxBox_descriptor_ = file->message_type(3);
-  static const int U3DPhysxBox_offsets_[6] = {
+  U3DPhysxBox_descriptor_ = file->message_type(4);
+  static const int U3DPhysxBox_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, x_extents_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, y_extents_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, z_extents_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxBox, rotation_),
   };
   U3DPhysxBox_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -125,13 +148,14 @@ void protobuf_AssignDesc_Scene_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(U3DPhysxBox));
-  U3DPhysxCapsule_descriptor_ = file->message_type(4);
-  static const int U3DPhysxCapsule_offsets_[5] = {
+  U3DPhysxCapsule_descriptor_ = file->message_type(5);
+  static const int U3DPhysxCapsule_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxCapsule, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxCapsule, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxCapsule, pos_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxCapsule, raduis_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxCapsule, height_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxCapsule, rotation_),
   };
   U3DPhysxCapsule_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -144,12 +168,13 @@ void protobuf_AssignDesc_Scene_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(U3DPhysxCapsule));
-  U3DPhysxMesh_descriptor_ = file->message_type(5);
-  static const int U3DPhysxMesh_offsets_[4] = {
+  U3DPhysxMesh_descriptor_ = file->message_type(6);
+  static const int U3DPhysxMesh_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxMesh, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxMesh, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxMesh, vertex_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxMesh, vertices_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(U3DPhysxMesh, rotation_),
   };
   U3DPhysxMesh_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -176,7 +201,9 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Position_descriptor_, &Position::default_instance());
+    Vector3_descriptor_, &Vector3::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Vector4_descriptor_, &Vector4::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     U3DPhysxScene_descriptor_, &U3DPhysxScene::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -192,8 +219,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_Scene_2eproto() {
-  delete Position::default_instance_;
-  delete Position_reflection_;
+  delete Vector3::default_instance_;
+  delete Vector3_reflection_;
+  delete Vector4::default_instance_;
+  delete Vector4_reflection_;
   delete U3DPhysxScene::default_instance_;
   delete U3DPhysxScene_reflection_;
   delete U3DPhysxSphere::default_instance_;
@@ -213,40 +242,47 @@ void protobuf_AddDesc_Scene_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013Scene.proto\022\014killer.proto\"4\n\010Position\022"
-    "\014\n\001x\030\001 \001(\001:\0010\022\014\n\001y\030\002 \001(\001:\0010\022\014\n\001z\030\003 \001(\001:\001"
-    "0\"\203\002\n\rU3DPhysxScene\022\n\n\002id\030\001 \001(\005\022\022\n\nscene"
-    "_name\030\002 \001(\t\022/\n\014box_collider\030\003 \003(\0132\031.kill"
-    "er.proto.U3DPhysxBox\0225\n\017sphere_collider\030"
-    "\004 \003(\0132\034.killer.proto.U3DPhysxSphere\0227\n\020c"
-    "apsule_collider\030\005 \003(\0132\035.killer.proto.U3D"
-    "PhysxCapsule\0221\n\rmesh_collider\030\006 \003(\0132\032.ki"
-    "ller.proto.U3DPhysxMesh\"{\n\016U3DPhysxSpher"
-    "e\022\n\n\002id\030\001 \001(\005\022(\n\004type\030\002 \001(\0162\032.killer.pro"
-    "to.ColliderType\022#\n\003pos\030\003 \001(\0132\026.killer.pr"
-    "oto.Position\022\016\n\006radius\030\004 \001(\001\"\241\001\n\013U3DPhys"
-    "xBox\022\n\n\002id\030\001 \001(\005\022(\n\004type\030\002 \001(\0162\032.killer."
-    "proto.ColliderType\022#\n\003pos\030\003 \001(\0132\026.killer"
-    ".proto.Position\022\021\n\tx_extents\030\004 \001(\001\022\021\n\ty_"
-    "extents\030\005 \001(\001\022\021\n\tz_extents\030\006 \001(\001\"\214\001\n\017U3D"
-    "PhysxCapsule\022\n\n\002id\030\001 \001(\005\022(\n\004type\030\002 \001(\0162\032"
-    ".killer.proto.ColliderType\022#\n\003pos\030\003 \001(\0132"
-    "\026.killer.proto.Position\022\016\n\006raduis\030\004 \001(\001\022"
-    "\016\n\006height\030\005 \001(\001\"\204\001\n\014U3DPhysxMesh\022\n\n\002id\030\001"
-    " \001(\005\022(\n\004type\030\002 \001(\0162\032.killer.proto.Collid"
-    "erType\022\024\n\014vertex_count\030\003 \001(\005\022(\n\010vertices"
-    "\030\004 \003(\0132\026.killer.proto.Position*:\n\014Collid"
-    "erType\022\007\n\003BOX\020\001\022\n\n\006SPHERE\020\002\022\013\n\007CAPSULE\020\003"
-    "\022\010\n\004MESH\020\004", 970);
+    "\n\013Scene.proto\022\014killer.proto\"3\n\007Vector3\022\014"
+    "\n\001x\030\001 \001(\001:\0010\022\014\n\001y\030\002 \001(\001:\0010\022\014\n\001z\030\003 \001(\001:\0010"
+    "\"A\n\007Vector4\022\014\n\001x\030\001 \001(\001:\0010\022\014\n\001y\030\002 \001(\001:\0010\022"
+    "\014\n\001z\030\003 \001(\001:\0010\022\014\n\001w\030\004 \001(\001:\0010\"\203\002\n\rU3DPhysx"
+    "Scene\022\n\n\002id\030\001 \001(\005\022\022\n\nscene_name\030\002 \001(\t\022/\n"
+    "\014box_collider\030\003 \003(\0132\031.killer.proto.U3DPh"
+    "ysxBox\0225\n\017sphere_collider\030\004 \003(\0132\034.killer"
+    ".proto.U3DPhysxSphere\0227\n\020capsule_collide"
+    "r\030\005 \003(\0132\035.killer.proto.U3DPhysxCapsule\0221"
+    "\n\rmesh_collider\030\006 \003(\0132\032.killer.proto.U3D"
+    "PhysxMesh\"\243\001\n\016U3DPhysxSphere\022\n\n\002id\030\001 \001(\005"
+    "\022(\n\004type\030\002 \001(\0162\032.killer.proto.ColliderTy"
+    "pe\022\"\n\003pos\030\003 \001(\0132\025.killer.proto.Vector3\022\016"
+    "\n\006radius\030\004 \001(\001\022\'\n\010rotation\030\005 \001(\0132\025.kille"
+    "r.proto.Vector4\"\311\001\n\013U3DPhysxBox\022\n\n\002id\030\001 "
+    "\001(\005\022(\n\004type\030\002 \001(\0162\032.killer.proto.Collide"
+    "rType\022\"\n\003pos\030\003 \001(\0132\025.killer.proto.Vector"
+    "3\022\021\n\tx_extents\030\004 \001(\001\022\021\n\ty_extents\030\005 \001(\001\022"
+    "\021\n\tz_extents\030\006 \001(\001\022\'\n\010rotation\030\007 \001(\0132\025.k"
+    "iller.proto.Vector4\"\264\001\n\017U3DPhysxCapsule\022"
+    "\n\n\002id\030\001 \001(\005\022(\n\004type\030\002 \001(\0162\032.killer.proto"
+    ".ColliderType\022\"\n\003pos\030\003 \001(\0132\025.killer.prot"
+    "o.Vector3\022\016\n\006raduis\030\004 \001(\001\022\016\n\006height\030\005 \001("
+    "\001\022\'\n\010rotation\030\006 \001(\0132\025.killer.proto.Vecto"
+    "r4\"\254\001\n\014U3DPhysxMesh\022\n\n\002id\030\001 \001(\005\022(\n\004type\030"
+    "\002 \001(\0162\032.killer.proto.ColliderType\022\024\n\014ver"
+    "tex_count\030\003 \001(\005\022\'\n\010vertices\030\004 \003(\0132\025.kill"
+    "er.proto.Vector3\022\'\n\010rotation\030\005 \001(\0132\025.kil"
+    "ler.proto.Vector4*:\n\014ColliderType\022\007\n\003BOX"
+    "\020\001\022\n\n\006SPHERE\020\002\022\013\n\007CAPSULE\020\003\022\010\n\004MESH\020\004", 1197);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Scene.proto", &protobuf_RegisterTypes);
-  Position::default_instance_ = new Position();
+  Vector3::default_instance_ = new Vector3();
+  Vector4::default_instance_ = new Vector4();
   U3DPhysxScene::default_instance_ = new U3DPhysxScene();
   U3DPhysxSphere::default_instance_ = new U3DPhysxSphere();
   U3DPhysxBox::default_instance_ = new U3DPhysxBox();
   U3DPhysxCapsule::default_instance_ = new U3DPhysxCapsule();
   U3DPhysxMesh::default_instance_ = new U3DPhysxMesh();
-  Position::default_instance_->InitAsDefaultInstance();
+  Vector3::default_instance_->InitAsDefaultInstance();
+  Vector4::default_instance_->InitAsDefaultInstance();
   U3DPhysxScene::default_instance_->InitAsDefaultInstance();
   U3DPhysxSphere::default_instance_->InitAsDefaultInstance();
   U3DPhysxBox::default_instance_->InitAsDefaultInstance();
@@ -281,28 +317,28 @@ bool ColliderType_IsValid(int value) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Position::kXFieldNumber;
-const int Position::kYFieldNumber;
-const int Position::kZFieldNumber;
+const int Vector3::kXFieldNumber;
+const int Vector3::kYFieldNumber;
+const int Vector3::kZFieldNumber;
 #endif  // !_MSC_VER
 
-Position::Position()
+Vector3::Vector3()
   : ::google::protobuf::Message() {
   SharedCtor();
-  // @@protoc_insertion_point(constructor:killer.proto.Position)
+  // @@protoc_insertion_point(constructor:killer.proto.Vector3)
 }
 
-void Position::InitAsDefaultInstance() {
+void Vector3::InitAsDefaultInstance() {
 }
 
-Position::Position(const Position& from)
+Vector3::Vector3(const Vector3& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:killer.proto.Position)
+  // @@protoc_insertion_point(copy_constructor:killer.proto.Vector3)
 }
 
-void Position::SharedCtor() {
+void Vector3::SharedCtor() {
   _cached_size_ = 0;
   x_ = 0;
   y_ = 0;
@@ -310,40 +346,40 @@ void Position::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Position::~Position() {
-  // @@protoc_insertion_point(destructor:killer.proto.Position)
+Vector3::~Vector3() {
+  // @@protoc_insertion_point(destructor:killer.proto.Vector3)
   SharedDtor();
 }
 
-void Position::SharedDtor() {
+void Vector3::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Position::SetCachedSize(int size) const {
+void Vector3::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Position::descriptor() {
+const ::google::protobuf::Descriptor* Vector3::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Position_descriptor_;
+  return Vector3_descriptor_;
 }
 
-const Position& Position::default_instance() {
+const Vector3& Vector3::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_Scene_2eproto();
   return *default_instance_;
 }
 
-Position* Position::default_instance_ = NULL;
+Vector3* Vector3::default_instance_ = NULL;
 
-Position* Position::New() const {
-  return new Position;
+Vector3* Vector3::New() const {
+  return new Vector3;
 }
 
-void Position::Clear() {
+void Vector3::Clear() {
 #define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
-  &reinterpret_cast<Position*>(16)->f) - \
+  &reinterpret_cast<Vector3*>(16)->f) - \
    reinterpret_cast<char*>(16))
 
 #define ZR_(first, last) do {                              \
@@ -361,11 +397,11 @@ void Position::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool Position::MergePartialFromCodedStream(
+bool Vector3::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:killer.proto.Position)
+  // @@protoc_insertion_point(parse_start:killer.proto.Vector3)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
@@ -429,17 +465,17 @@ bool Position::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:killer.proto.Position)
+  // @@protoc_insertion_point(parse_success:killer.proto.Vector3)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:killer.proto.Position)
+  // @@protoc_insertion_point(parse_failure:killer.proto.Vector3)
   return false;
 #undef DO_
 }
 
-void Position::SerializeWithCachedSizes(
+void Vector3::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:killer.proto.Position)
+  // @@protoc_insertion_point(serialize_start:killer.proto.Vector3)
   // optional double x = 1 [default = 0];
   if (has_x()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->x(), output);
@@ -459,12 +495,12 @@ void Position::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
-  // @@protoc_insertion_point(serialize_end:killer.proto.Position)
+  // @@protoc_insertion_point(serialize_end:killer.proto.Vector3)
 }
 
-::google::protobuf::uint8* Position::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Vector3::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:killer.proto.Position)
+  // @@protoc_insertion_point(serialize_to_array_start:killer.proto.Vector3)
   // optional double x = 1 [default = 0];
   if (has_x()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->x(), target);
@@ -484,11 +520,11 @@ void Position::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:killer.proto.Position)
+  // @@protoc_insertion_point(serialize_to_array_end:killer.proto.Vector3)
   return target;
 }
 
-int Position::ByteSize() const {
+int Vector3::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -519,10 +555,10 @@ int Position::ByteSize() const {
   return total_size;
 }
 
-void Position::MergeFrom(const ::google::protobuf::Message& from) {
+void Vector3::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Position* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Position*>(
+  const Vector3* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Vector3*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -531,7 +567,7 @@ void Position::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void Position::MergeFrom(const Position& from) {
+void Vector3::MergeFrom(const Vector3& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_x()) {
@@ -547,24 +583,24 @@ void Position::MergeFrom(const Position& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Position::CopyFrom(const ::google::protobuf::Message& from) {
+void Vector3::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Position::CopyFrom(const Position& from) {
+void Vector3::CopyFrom(const Vector3& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Position::IsInitialized() const {
+bool Vector3::IsInitialized() const {
 
   return true;
 }
 
-void Position::Swap(Position* other) {
+void Vector3::Swap(Vector3* other) {
   if (other != this) {
     std::swap(x_, other->x_);
     std::swap(y_, other->y_);
@@ -575,11 +611,353 @@ void Position::Swap(Position* other) {
   }
 }
 
-::google::protobuf::Metadata Position::GetMetadata() const {
+::google::protobuf::Metadata Vector3::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Position_descriptor_;
-  metadata.reflection = Position_reflection_;
+  metadata.descriptor = Vector3_descriptor_;
+  metadata.reflection = Vector3_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Vector4::kXFieldNumber;
+const int Vector4::kYFieldNumber;
+const int Vector4::kZFieldNumber;
+const int Vector4::kWFieldNumber;
+#endif  // !_MSC_VER
+
+Vector4::Vector4()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:killer.proto.Vector4)
+}
+
+void Vector4::InitAsDefaultInstance() {
+}
+
+Vector4::Vector4(const Vector4& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:killer.proto.Vector4)
+}
+
+void Vector4::SharedCtor() {
+  _cached_size_ = 0;
+  x_ = 0;
+  y_ = 0;
+  z_ = 0;
+  w_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Vector4::~Vector4() {
+  // @@protoc_insertion_point(destructor:killer.proto.Vector4)
+  SharedDtor();
+}
+
+void Vector4::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Vector4::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Vector4::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Vector4_descriptor_;
+}
+
+const Vector4& Vector4::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Scene_2eproto();
+  return *default_instance_;
+}
+
+Vector4* Vector4::default_instance_ = NULL;
+
+Vector4* Vector4::New() const {
+  return new Vector4;
+}
+
+void Vector4::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<Vector4*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  ZR_(x_, w_);
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Vector4::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:killer.proto.Vector4)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional double x = 1 [default = 0];
+      case 1: {
+        if (tag == 9) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &x_)));
+          set_has_x();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(17)) goto parse_y;
+        break;
+      }
+
+      // optional double y = 2 [default = 0];
+      case 2: {
+        if (tag == 17) {
+         parse_y:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &y_)));
+          set_has_y();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(25)) goto parse_z;
+        break;
+      }
+
+      // optional double z = 3 [default = 0];
+      case 3: {
+        if (tag == 25) {
+         parse_z:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &z_)));
+          set_has_z();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(33)) goto parse_w;
+        break;
+      }
+
+      // optional double w = 4 [default = 0];
+      case 4: {
+        if (tag == 33) {
+         parse_w:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
+                 input, &w_)));
+          set_has_w();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:killer.proto.Vector4)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:killer.proto.Vector4)
+  return false;
+#undef DO_
+}
+
+void Vector4::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:killer.proto.Vector4)
+  // optional double x = 1 [default = 0];
+  if (has_x()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(1, this->x(), output);
+  }
+
+  // optional double y = 2 [default = 0];
+  if (has_y()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(2, this->y(), output);
+  }
+
+  // optional double z = 3 [default = 0];
+  if (has_z()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(3, this->z(), output);
+  }
+
+  // optional double w = 4 [default = 0];
+  if (has_w()) {
+    ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->w(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:killer.proto.Vector4)
+}
+
+::google::protobuf::uint8* Vector4::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:killer.proto.Vector4)
+  // optional double x = 1 [default = 0];
+  if (has_x()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(1, this->x(), target);
+  }
+
+  // optional double y = 2 [default = 0];
+  if (has_y()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(2, this->y(), target);
+  }
+
+  // optional double z = 3 [default = 0];
+  if (has_z()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(3, this->z(), target);
+  }
+
+  // optional double w = 4 [default = 0];
+  if (has_w()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->w(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:killer.proto.Vector4)
+  return target;
+}
+
+int Vector4::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional double x = 1 [default = 0];
+    if (has_x()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double y = 2 [default = 0];
+    if (has_y()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double z = 3 [default = 0];
+    if (has_z()) {
+      total_size += 1 + 8;
+    }
+
+    // optional double w = 4 [default = 0];
+    if (has_w()) {
+      total_size += 1 + 8;
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Vector4::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Vector4* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Vector4*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Vector4::MergeFrom(const Vector4& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_x()) {
+      set_x(from.x());
+    }
+    if (from.has_y()) {
+      set_y(from.y());
+    }
+    if (from.has_z()) {
+      set_z(from.z());
+    }
+    if (from.has_w()) {
+      set_w(from.w());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Vector4::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Vector4::CopyFrom(const Vector4& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Vector4::IsInitialized() const {
+
+  return true;
+}
+
+void Vector4::Swap(Vector4* other) {
+  if (other != this) {
+    std::swap(x_, other->x_);
+    std::swap(y_, other->y_);
+    std::swap(z_, other->z_);
+    std::swap(w_, other->w_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Vector4::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Vector4_descriptor_;
+  metadata.reflection = Vector4_reflection_;
   return metadata;
 }
 
@@ -1031,6 +1409,7 @@ const int U3DPhysxSphere::kIdFieldNumber;
 const int U3DPhysxSphere::kTypeFieldNumber;
 const int U3DPhysxSphere::kPosFieldNumber;
 const int U3DPhysxSphere::kRadiusFieldNumber;
+const int U3DPhysxSphere::kRotationFieldNumber;
 #endif  // !_MSC_VER
 
 U3DPhysxSphere::U3DPhysxSphere()
@@ -1040,7 +1419,8 @@ U3DPhysxSphere::U3DPhysxSphere()
 }
 
 void U3DPhysxSphere::InitAsDefaultInstance() {
-  pos_ = const_cast< ::killer::proto::Position*>(&::killer::proto::Position::default_instance());
+  pos_ = const_cast< ::killer::proto::Vector3*>(&::killer::proto::Vector3::default_instance());
+  rotation_ = const_cast< ::killer::proto::Vector4*>(&::killer::proto::Vector4::default_instance());
 }
 
 U3DPhysxSphere::U3DPhysxSphere(const U3DPhysxSphere& from)
@@ -1056,6 +1436,7 @@ void U3DPhysxSphere::SharedCtor() {
   type_ = 1;
   pos_ = NULL;
   radius_ = 0;
+  rotation_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1067,6 +1448,7 @@ U3DPhysxSphere::~U3DPhysxSphere() {
 void U3DPhysxSphere::SharedDtor() {
   if (this != default_instance_) {
     delete pos_;
+    delete rotation_;
   }
 }
 
@@ -1092,13 +1474,16 @@ U3DPhysxSphere* U3DPhysxSphere::New() const {
 }
 
 void U3DPhysxSphere::Clear() {
-  if (_has_bits_[0 / 32] & 15) {
+  if (_has_bits_[0 / 32] & 31) {
     id_ = 0;
     type_ = 1;
     if (has_pos()) {
-      if (pos_ != NULL) pos_->::killer::proto::Position::Clear();
+      if (pos_ != NULL) pos_->::killer::proto::Vector3::Clear();
     }
     radius_ = 0;
+    if (has_rotation()) {
+      if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1148,7 +1533,7 @@ bool U3DPhysxSphere::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .killer.proto.Position pos = 3;
+      // optional .killer.proto.Vector3 pos = 3;
       case 3: {
         if (tag == 26) {
          parse_pos:
@@ -1169,6 +1554,19 @@ bool U3DPhysxSphere::MergePartialFromCodedStream(
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &radius_)));
           set_has_radius();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(42)) goto parse_rotation;
+        break;
+      }
+
+      // optional .killer.proto.Vector4 rotation = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_rotation:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_rotation()));
         } else {
           goto handle_unusual;
         }
@@ -1212,7 +1610,7 @@ void U3DPhysxSphere::SerializeWithCachedSizes(
       2, this->type(), output);
   }
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   if (has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->pos(), output);
@@ -1221,6 +1619,12 @@ void U3DPhysxSphere::SerializeWithCachedSizes(
   // optional double radius = 4;
   if (has_radius()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(4, this->radius(), output);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 5;
+  if (has_rotation()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->rotation(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1244,7 +1648,7 @@ void U3DPhysxSphere::SerializeWithCachedSizes(
       2, this->type(), target);
   }
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   if (has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1254,6 +1658,13 @@ void U3DPhysxSphere::SerializeWithCachedSizes(
   // optional double radius = 4;
   if (has_radius()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(4, this->radius(), target);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 5;
+  if (has_rotation()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->rotation(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1281,7 +1692,7 @@ int U3DPhysxSphere::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional .killer.proto.Position pos = 3;
+    // optional .killer.proto.Vector3 pos = 3;
     if (has_pos()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1291,6 +1702,13 @@ int U3DPhysxSphere::ByteSize() const {
     // optional double radius = 4;
     if (has_radius()) {
       total_size += 1 + 8;
+    }
+
+    // optional .killer.proto.Vector4 rotation = 5;
+    if (has_rotation()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->rotation());
     }
 
   }
@@ -1327,10 +1745,13 @@ void U3DPhysxSphere::MergeFrom(const U3DPhysxSphere& from) {
       set_type(from.type());
     }
     if (from.has_pos()) {
-      mutable_pos()->::killer::proto::Position::MergeFrom(from.pos());
+      mutable_pos()->::killer::proto::Vector3::MergeFrom(from.pos());
     }
     if (from.has_radius()) {
       set_radius(from.radius());
+    }
+    if (from.has_rotation()) {
+      mutable_rotation()->::killer::proto::Vector4::MergeFrom(from.rotation());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1359,6 +1780,7 @@ void U3DPhysxSphere::Swap(U3DPhysxSphere* other) {
     std::swap(type_, other->type_);
     std::swap(pos_, other->pos_);
     std::swap(radius_, other->radius_);
+    std::swap(rotation_, other->rotation_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1383,6 +1805,7 @@ const int U3DPhysxBox::kPosFieldNumber;
 const int U3DPhysxBox::kXExtentsFieldNumber;
 const int U3DPhysxBox::kYExtentsFieldNumber;
 const int U3DPhysxBox::kZExtentsFieldNumber;
+const int U3DPhysxBox::kRotationFieldNumber;
 #endif  // !_MSC_VER
 
 U3DPhysxBox::U3DPhysxBox()
@@ -1392,7 +1815,8 @@ U3DPhysxBox::U3DPhysxBox()
 }
 
 void U3DPhysxBox::InitAsDefaultInstance() {
-  pos_ = const_cast< ::killer::proto::Position*>(&::killer::proto::Position::default_instance());
+  pos_ = const_cast< ::killer::proto::Vector3*>(&::killer::proto::Vector3::default_instance());
+  rotation_ = const_cast< ::killer::proto::Vector4*>(&::killer::proto::Vector4::default_instance());
 }
 
 U3DPhysxBox::U3DPhysxBox(const U3DPhysxBox& from)
@@ -1410,6 +1834,7 @@ void U3DPhysxBox::SharedCtor() {
   x_extents_ = 0;
   y_extents_ = 0;
   z_extents_ = 0;
+  rotation_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1421,6 +1846,7 @@ U3DPhysxBox::~U3DPhysxBox() {
 void U3DPhysxBox::SharedDtor() {
   if (this != default_instance_) {
     delete pos_;
+    delete rotation_;
   }
 }
 
@@ -1456,12 +1882,15 @@ void U3DPhysxBox::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 63) {
+  if (_has_bits_[0 / 32] & 127) {
     ZR_(x_extents_, z_extents_);
     id_ = 0;
     type_ = 1;
     if (has_pos()) {
-      if (pos_ != NULL) pos_->::killer::proto::Position::Clear();
+      if (pos_ != NULL) pos_->::killer::proto::Vector3::Clear();
+    }
+    if (has_rotation()) {
+      if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
     }
   }
 
@@ -1516,7 +1945,7 @@ bool U3DPhysxBox::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .killer.proto.Position pos = 3;
+      // optional .killer.proto.Vector3 pos = 3;
       case 3: {
         if (tag == 26) {
          parse_pos:
@@ -1570,6 +1999,19 @@ bool U3DPhysxBox::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(58)) goto parse_rotation;
+        break;
+      }
+
+      // optional .killer.proto.Vector4 rotation = 7;
+      case 7: {
+        if (tag == 58) {
+         parse_rotation:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_rotation()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -1610,7 +2052,7 @@ void U3DPhysxBox::SerializeWithCachedSizes(
       2, this->type(), output);
   }
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   if (has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->pos(), output);
@@ -1629,6 +2071,12 @@ void U3DPhysxBox::SerializeWithCachedSizes(
   // optional double z_extents = 6;
   if (has_z_extents()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(6, this->z_extents(), output);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 7;
+  if (has_rotation()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, this->rotation(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1652,7 +2100,7 @@ void U3DPhysxBox::SerializeWithCachedSizes(
       2, this->type(), target);
   }
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   if (has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -1672,6 +2120,13 @@ void U3DPhysxBox::SerializeWithCachedSizes(
   // optional double z_extents = 6;
   if (has_z_extents()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(6, this->z_extents(), target);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 7;
+  if (has_rotation()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        7, this->rotation(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1699,7 +2154,7 @@ int U3DPhysxBox::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional .killer.proto.Position pos = 3;
+    // optional .killer.proto.Vector3 pos = 3;
     if (has_pos()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1719,6 +2174,13 @@ int U3DPhysxBox::ByteSize() const {
     // optional double z_extents = 6;
     if (has_z_extents()) {
       total_size += 1 + 8;
+    }
+
+    // optional .killer.proto.Vector4 rotation = 7;
+    if (has_rotation()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->rotation());
     }
 
   }
@@ -1755,7 +2217,7 @@ void U3DPhysxBox::MergeFrom(const U3DPhysxBox& from) {
       set_type(from.type());
     }
     if (from.has_pos()) {
-      mutable_pos()->::killer::proto::Position::MergeFrom(from.pos());
+      mutable_pos()->::killer::proto::Vector3::MergeFrom(from.pos());
     }
     if (from.has_x_extents()) {
       set_x_extents(from.x_extents());
@@ -1765,6 +2227,9 @@ void U3DPhysxBox::MergeFrom(const U3DPhysxBox& from) {
     }
     if (from.has_z_extents()) {
       set_z_extents(from.z_extents());
+    }
+    if (from.has_rotation()) {
+      mutable_rotation()->::killer::proto::Vector4::MergeFrom(from.rotation());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1795,6 +2260,7 @@ void U3DPhysxBox::Swap(U3DPhysxBox* other) {
     std::swap(x_extents_, other->x_extents_);
     std::swap(y_extents_, other->y_extents_);
     std::swap(z_extents_, other->z_extents_);
+    std::swap(rotation_, other->rotation_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1818,6 +2284,7 @@ const int U3DPhysxCapsule::kTypeFieldNumber;
 const int U3DPhysxCapsule::kPosFieldNumber;
 const int U3DPhysxCapsule::kRaduisFieldNumber;
 const int U3DPhysxCapsule::kHeightFieldNumber;
+const int U3DPhysxCapsule::kRotationFieldNumber;
 #endif  // !_MSC_VER
 
 U3DPhysxCapsule::U3DPhysxCapsule()
@@ -1827,7 +2294,8 @@ U3DPhysxCapsule::U3DPhysxCapsule()
 }
 
 void U3DPhysxCapsule::InitAsDefaultInstance() {
-  pos_ = const_cast< ::killer::proto::Position*>(&::killer::proto::Position::default_instance());
+  pos_ = const_cast< ::killer::proto::Vector3*>(&::killer::proto::Vector3::default_instance());
+  rotation_ = const_cast< ::killer::proto::Vector4*>(&::killer::proto::Vector4::default_instance());
 }
 
 U3DPhysxCapsule::U3DPhysxCapsule(const U3DPhysxCapsule& from)
@@ -1844,6 +2312,7 @@ void U3DPhysxCapsule::SharedCtor() {
   pos_ = NULL;
   raduis_ = 0;
   height_ = 0;
+  rotation_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1855,6 +2324,7 @@ U3DPhysxCapsule::~U3DPhysxCapsule() {
 void U3DPhysxCapsule::SharedDtor() {
   if (this != default_instance_) {
     delete pos_;
+    delete rotation_;
   }
 }
 
@@ -1890,12 +2360,15 @@ void U3DPhysxCapsule::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
+  if (_has_bits_[0 / 32] & 63) {
     ZR_(raduis_, height_);
     id_ = 0;
     type_ = 1;
     if (has_pos()) {
-      if (pos_ != NULL) pos_->::killer::proto::Position::Clear();
+      if (pos_ != NULL) pos_->::killer::proto::Vector3::Clear();
+    }
+    if (has_rotation()) {
+      if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
     }
   }
 
@@ -1950,7 +2423,7 @@ bool U3DPhysxCapsule::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .killer.proto.Position pos = 3;
+      // optional .killer.proto.Vector3 pos = 3;
       case 3: {
         if (tag == 26) {
          parse_pos:
@@ -1986,6 +2459,19 @@ bool U3DPhysxCapsule::MergePartialFromCodedStream(
                    double, ::google::protobuf::internal::WireFormatLite::TYPE_DOUBLE>(
                  input, &height_)));
           set_has_height();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(50)) goto parse_rotation;
+        break;
+      }
+
+      // optional .killer.proto.Vector4 rotation = 6;
+      case 6: {
+        if (tag == 50) {
+         parse_rotation:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_rotation()));
         } else {
           goto handle_unusual;
         }
@@ -2029,7 +2515,7 @@ void U3DPhysxCapsule::SerializeWithCachedSizes(
       2, this->type(), output);
   }
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   if (has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       3, this->pos(), output);
@@ -2043,6 +2529,12 @@ void U3DPhysxCapsule::SerializeWithCachedSizes(
   // optional double height = 5;
   if (has_height()) {
     ::google::protobuf::internal::WireFormatLite::WriteDouble(5, this->height(), output);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 6;
+  if (has_rotation()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, this->rotation(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2066,7 +2558,7 @@ void U3DPhysxCapsule::SerializeWithCachedSizes(
       2, this->type(), target);
   }
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   if (has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
@@ -2081,6 +2573,13 @@ void U3DPhysxCapsule::SerializeWithCachedSizes(
   // optional double height = 5;
   if (has_height()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteDoubleToArray(5, this->height(), target);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 6;
+  if (has_rotation()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        6, this->rotation(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2108,7 +2607,7 @@ int U3DPhysxCapsule::ByteSize() const {
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
-    // optional .killer.proto.Position pos = 3;
+    // optional .killer.proto.Vector3 pos = 3;
     if (has_pos()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -2123,6 +2622,13 @@ int U3DPhysxCapsule::ByteSize() const {
     // optional double height = 5;
     if (has_height()) {
       total_size += 1 + 8;
+    }
+
+    // optional .killer.proto.Vector4 rotation = 6;
+    if (has_rotation()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->rotation());
     }
 
   }
@@ -2159,13 +2665,16 @@ void U3DPhysxCapsule::MergeFrom(const U3DPhysxCapsule& from) {
       set_type(from.type());
     }
     if (from.has_pos()) {
-      mutable_pos()->::killer::proto::Position::MergeFrom(from.pos());
+      mutable_pos()->::killer::proto::Vector3::MergeFrom(from.pos());
     }
     if (from.has_raduis()) {
       set_raduis(from.raduis());
     }
     if (from.has_height()) {
       set_height(from.height());
+    }
+    if (from.has_rotation()) {
+      mutable_rotation()->::killer::proto::Vector4::MergeFrom(from.rotation());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -2195,6 +2704,7 @@ void U3DPhysxCapsule::Swap(U3DPhysxCapsule* other) {
     std::swap(pos_, other->pos_);
     std::swap(raduis_, other->raduis_);
     std::swap(height_, other->height_);
+    std::swap(rotation_, other->rotation_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2217,6 +2727,7 @@ const int U3DPhysxMesh::kIdFieldNumber;
 const int U3DPhysxMesh::kTypeFieldNumber;
 const int U3DPhysxMesh::kVertexCountFieldNumber;
 const int U3DPhysxMesh::kVerticesFieldNumber;
+const int U3DPhysxMesh::kRotationFieldNumber;
 #endif  // !_MSC_VER
 
 U3DPhysxMesh::U3DPhysxMesh()
@@ -2226,6 +2737,7 @@ U3DPhysxMesh::U3DPhysxMesh()
 }
 
 void U3DPhysxMesh::InitAsDefaultInstance() {
+  rotation_ = const_cast< ::killer::proto::Vector4*>(&::killer::proto::Vector4::default_instance());
 }
 
 U3DPhysxMesh::U3DPhysxMesh(const U3DPhysxMesh& from)
@@ -2240,6 +2752,7 @@ void U3DPhysxMesh::SharedCtor() {
   id_ = 0;
   type_ = 1;
   vertex_count_ = 0;
+  rotation_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2250,6 +2763,7 @@ U3DPhysxMesh::~U3DPhysxMesh() {
 
 void U3DPhysxMesh::SharedDtor() {
   if (this != default_instance_) {
+    delete rotation_;
   }
 }
 
@@ -2275,10 +2789,13 @@ U3DPhysxMesh* U3DPhysxMesh::New() const {
 }
 
 void U3DPhysxMesh::Clear() {
-  if (_has_bits_[0 / 32] & 7) {
+  if (_has_bits_[0 / 32] & 23) {
     id_ = 0;
     type_ = 1;
     vertex_count_ = 0;
+    if (has_rotation()) {
+      if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
+    }
   }
   vertices_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2344,7 +2861,7 @@ bool U3DPhysxMesh::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .killer.proto.Position vertices = 4;
+      // repeated .killer.proto.Vector3 vertices = 4;
       case 4: {
         if (tag == 34) {
          parse_vertices:
@@ -2354,6 +2871,19 @@ bool U3DPhysxMesh::MergePartialFromCodedStream(
           goto handle_unusual;
         }
         if (input->ExpectTag(34)) goto parse_vertices;
+        if (input->ExpectTag(42)) goto parse_rotation;
+        break;
+      }
+
+      // optional .killer.proto.Vector4 rotation = 5;
+      case 5: {
+        if (tag == 42) {
+         parse_rotation:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_rotation()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -2399,10 +2929,16 @@ void U3DPhysxMesh::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->vertex_count(), output);
   }
 
-  // repeated .killer.proto.Position vertices = 4;
+  // repeated .killer.proto.Vector3 vertices = 4;
   for (int i = 0; i < this->vertices_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       4, this->vertices(i), output);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 5;
+  if (has_rotation()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->rotation(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2431,11 +2967,18 @@ void U3DPhysxMesh::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->vertex_count(), target);
   }
 
-  // repeated .killer.proto.Position vertices = 4;
+  // repeated .killer.proto.Vector3 vertices = 4;
   for (int i = 0; i < this->vertices_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, this->vertices(i), target);
+  }
+
+  // optional .killer.proto.Vector4 rotation = 5;
+  if (has_rotation()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->rotation(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2470,8 +3013,15 @@ int U3DPhysxMesh::ByteSize() const {
           this->vertex_count());
     }
 
+    // optional .killer.proto.Vector4 rotation = 5;
+    if (has_rotation()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->rotation());
+    }
+
   }
-  // repeated .killer.proto.Position vertices = 4;
+  // repeated .killer.proto.Vector3 vertices = 4;
   total_size += 1 * this->vertices_size();
   for (int i = 0; i < this->vertices_size(); i++) {
     total_size +=
@@ -2515,6 +3065,9 @@ void U3DPhysxMesh::MergeFrom(const U3DPhysxMesh& from) {
     if (from.has_vertex_count()) {
       set_vertex_count(from.vertex_count());
     }
+    if (from.has_rotation()) {
+      mutable_rotation()->::killer::proto::Vector4::MergeFrom(from.rotation());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2542,6 +3095,7 @@ void U3DPhysxMesh::Swap(U3DPhysxMesh* other) {
     std::swap(type_, other->type_);
     std::swap(vertex_count_, other->vertex_count_);
     vertices_.Swap(&other->vertices_);
+    std::swap(rotation_, other->rotation_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

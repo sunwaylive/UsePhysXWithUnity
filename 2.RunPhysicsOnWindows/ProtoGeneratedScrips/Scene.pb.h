@@ -35,7 +35,8 @@ void  protobuf_AddDesc_Scene_2eproto();
 void protobuf_AssignDesc_Scene_2eproto();
 void protobuf_ShutdownFile_Scene_2eproto();
 
-class Position;
+class Vector3;
+class Vector4;
 class U3DPhysxScene;
 class U3DPhysxSphere;
 class U3DPhysxBox;
@@ -65,14 +66,14 @@ inline bool ColliderType_Parse(
 }
 // ===================================================================
 
-class Position : public ::google::protobuf::Message {
+class Vector3 : public ::google::protobuf::Message {
  public:
-  Position();
-  virtual ~Position();
+  Vector3();
+  virtual ~Vector3();
 
-  Position(const Position& from);
+  Vector3(const Vector3& from);
 
-  inline Position& operator=(const Position& from) {
+  inline Vector3& operator=(const Vector3& from) {
     CopyFrom(from);
     return *this;
   }
@@ -86,17 +87,17 @@ class Position : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Position& default_instance();
+  static const Vector3& default_instance();
 
-  void Swap(Position* other);
+  void Swap(Vector3* other);
 
   // implements Message ----------------------------------------------
 
-  Position* New() const;
+  Vector3* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Position& from);
-  void MergeFrom(const Position& from);
+  void CopyFrom(const Vector3& from);
+  void MergeFrom(const Vector3& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -139,7 +140,7 @@ class Position : public ::google::protobuf::Message {
   inline double z() const;
   inline void set_z(double value);
 
-  // @@protoc_insertion_point(class_scope:killer.proto.Position)
+  // @@protoc_insertion_point(class_scope:killer.proto.Vector3)
  private:
   inline void set_has_x();
   inline void clear_has_x();
@@ -160,7 +161,116 @@ class Position : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_Scene_2eproto();
 
   void InitAsDefaultInstance();
-  static Position* default_instance_;
+  static Vector3* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Vector4 : public ::google::protobuf::Message {
+ public:
+  Vector4();
+  virtual ~Vector4();
+
+  Vector4(const Vector4& from);
+
+  inline Vector4& operator=(const Vector4& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Vector4& default_instance();
+
+  void Swap(Vector4* other);
+
+  // implements Message ----------------------------------------------
+
+  Vector4* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Vector4& from);
+  void MergeFrom(const Vector4& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional double x = 1 [default = 0];
+  inline bool has_x() const;
+  inline void clear_x();
+  static const int kXFieldNumber = 1;
+  inline double x() const;
+  inline void set_x(double value);
+
+  // optional double y = 2 [default = 0];
+  inline bool has_y() const;
+  inline void clear_y();
+  static const int kYFieldNumber = 2;
+  inline double y() const;
+  inline void set_y(double value);
+
+  // optional double z = 3 [default = 0];
+  inline bool has_z() const;
+  inline void clear_z();
+  static const int kZFieldNumber = 3;
+  inline double z() const;
+  inline void set_z(double value);
+
+  // optional double w = 4 [default = 0];
+  inline bool has_w() const;
+  inline void clear_w();
+  static const int kWFieldNumber = 4;
+  inline double w() const;
+  inline void set_w(double value);
+
+  // @@protoc_insertion_point(class_scope:killer.proto.Vector4)
+ private:
+  inline void set_has_x();
+  inline void clear_has_x();
+  inline void set_has_y();
+  inline void clear_has_y();
+  inline void set_has_z();
+  inline void clear_has_z();
+  inline void set_has_w();
+  inline void clear_has_w();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  double x_;
+  double y_;
+  double z_;
+  double w_;
+  friend void  protobuf_AddDesc_Scene_2eproto();
+  friend void protobuf_AssignDesc_Scene_2eproto();
+  friend void protobuf_ShutdownFile_Scene_2eproto();
+
+  void InitAsDefaultInstance();
+  static Vector4* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -377,14 +487,14 @@ class U3DPhysxSphere : public ::google::protobuf::Message {
   inline ::killer::proto::ColliderType type() const;
   inline void set_type(::killer::proto::ColliderType value);
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   inline bool has_pos() const;
   inline void clear_pos();
   static const int kPosFieldNumber = 3;
-  inline const ::killer::proto::Position& pos() const;
-  inline ::killer::proto::Position* mutable_pos();
-  inline ::killer::proto::Position* release_pos();
-  inline void set_allocated_pos(::killer::proto::Position* pos);
+  inline const ::killer::proto::Vector3& pos() const;
+  inline ::killer::proto::Vector3* mutable_pos();
+  inline ::killer::proto::Vector3* release_pos();
+  inline void set_allocated_pos(::killer::proto::Vector3* pos);
 
   // optional double radius = 4;
   inline bool has_radius() const;
@@ -392,6 +502,15 @@ class U3DPhysxSphere : public ::google::protobuf::Message {
   static const int kRadiusFieldNumber = 4;
   inline double radius() const;
   inline void set_radius(double value);
+
+  // optional .killer.proto.Vector4 rotation = 5;
+  inline bool has_rotation() const;
+  inline void clear_rotation();
+  static const int kRotationFieldNumber = 5;
+  inline const ::killer::proto::Vector4& rotation() const;
+  inline ::killer::proto::Vector4* mutable_rotation();
+  inline ::killer::proto::Vector4* release_rotation();
+  inline void set_allocated_rotation(::killer::proto::Vector4* rotation);
 
   // @@protoc_insertion_point(class_scope:killer.proto.U3DPhysxSphere)
  private:
@@ -403,6 +522,8 @@ class U3DPhysxSphere : public ::google::protobuf::Message {
   inline void clear_has_pos();
   inline void set_has_radius();
   inline void clear_has_radius();
+  inline void set_has_rotation();
+  inline void clear_has_rotation();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -410,8 +531,9 @@ class U3DPhysxSphere : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
   int type_;
-  ::killer::proto::Position* pos_;
+  ::killer::proto::Vector3* pos_;
   double radius_;
+  ::killer::proto::Vector4* rotation_;
   friend void  protobuf_AddDesc_Scene_2eproto();
   friend void protobuf_AssignDesc_Scene_2eproto();
   friend void protobuf_ShutdownFile_Scene_2eproto();
@@ -488,14 +610,14 @@ class U3DPhysxBox : public ::google::protobuf::Message {
   inline ::killer::proto::ColliderType type() const;
   inline void set_type(::killer::proto::ColliderType value);
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   inline bool has_pos() const;
   inline void clear_pos();
   static const int kPosFieldNumber = 3;
-  inline const ::killer::proto::Position& pos() const;
-  inline ::killer::proto::Position* mutable_pos();
-  inline ::killer::proto::Position* release_pos();
-  inline void set_allocated_pos(::killer::proto::Position* pos);
+  inline const ::killer::proto::Vector3& pos() const;
+  inline ::killer::proto::Vector3* mutable_pos();
+  inline ::killer::proto::Vector3* release_pos();
+  inline void set_allocated_pos(::killer::proto::Vector3* pos);
 
   // optional double x_extents = 4;
   inline bool has_x_extents() const;
@@ -518,6 +640,15 @@ class U3DPhysxBox : public ::google::protobuf::Message {
   inline double z_extents() const;
   inline void set_z_extents(double value);
 
+  // optional .killer.proto.Vector4 rotation = 7;
+  inline bool has_rotation() const;
+  inline void clear_rotation();
+  static const int kRotationFieldNumber = 7;
+  inline const ::killer::proto::Vector4& rotation() const;
+  inline ::killer::proto::Vector4* mutable_rotation();
+  inline ::killer::proto::Vector4* release_rotation();
+  inline void set_allocated_rotation(::killer::proto::Vector4* rotation);
+
   // @@protoc_insertion_point(class_scope:killer.proto.U3DPhysxBox)
  private:
   inline void set_has_id();
@@ -532,6 +663,8 @@ class U3DPhysxBox : public ::google::protobuf::Message {
   inline void clear_has_y_extents();
   inline void set_has_z_extents();
   inline void clear_has_z_extents();
+  inline void set_has_rotation();
+  inline void clear_has_rotation();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -539,10 +672,11 @@ class U3DPhysxBox : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
   int type_;
-  ::killer::proto::Position* pos_;
+  ::killer::proto::Vector3* pos_;
   double x_extents_;
   double y_extents_;
   double z_extents_;
+  ::killer::proto::Vector4* rotation_;
   friend void  protobuf_AddDesc_Scene_2eproto();
   friend void protobuf_AssignDesc_Scene_2eproto();
   friend void protobuf_ShutdownFile_Scene_2eproto();
@@ -619,14 +753,14 @@ class U3DPhysxCapsule : public ::google::protobuf::Message {
   inline ::killer::proto::ColliderType type() const;
   inline void set_type(::killer::proto::ColliderType value);
 
-  // optional .killer.proto.Position pos = 3;
+  // optional .killer.proto.Vector3 pos = 3;
   inline bool has_pos() const;
   inline void clear_pos();
   static const int kPosFieldNumber = 3;
-  inline const ::killer::proto::Position& pos() const;
-  inline ::killer::proto::Position* mutable_pos();
-  inline ::killer::proto::Position* release_pos();
-  inline void set_allocated_pos(::killer::proto::Position* pos);
+  inline const ::killer::proto::Vector3& pos() const;
+  inline ::killer::proto::Vector3* mutable_pos();
+  inline ::killer::proto::Vector3* release_pos();
+  inline void set_allocated_pos(::killer::proto::Vector3* pos);
 
   // optional double raduis = 4;
   inline bool has_raduis() const;
@@ -642,6 +776,15 @@ class U3DPhysxCapsule : public ::google::protobuf::Message {
   inline double height() const;
   inline void set_height(double value);
 
+  // optional .killer.proto.Vector4 rotation = 6;
+  inline bool has_rotation() const;
+  inline void clear_rotation();
+  static const int kRotationFieldNumber = 6;
+  inline const ::killer::proto::Vector4& rotation() const;
+  inline ::killer::proto::Vector4* mutable_rotation();
+  inline ::killer::proto::Vector4* release_rotation();
+  inline void set_allocated_rotation(::killer::proto::Vector4* rotation);
+
   // @@protoc_insertion_point(class_scope:killer.proto.U3DPhysxCapsule)
  private:
   inline void set_has_id();
@@ -654,6 +797,8 @@ class U3DPhysxCapsule : public ::google::protobuf::Message {
   inline void clear_has_raduis();
   inline void set_has_height();
   inline void clear_has_height();
+  inline void set_has_rotation();
+  inline void clear_has_rotation();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -661,9 +806,10 @@ class U3DPhysxCapsule : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
   int type_;
-  ::killer::proto::Position* pos_;
+  ::killer::proto::Vector3* pos_;
   double raduis_;
   double height_;
+  ::killer::proto::Vector4* rotation_;
   friend void  protobuf_AddDesc_Scene_2eproto();
   friend void protobuf_AssignDesc_Scene_2eproto();
   friend void protobuf_ShutdownFile_Scene_2eproto();
@@ -747,17 +893,26 @@ class U3DPhysxMesh : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 vertex_count() const;
   inline void set_vertex_count(::google::protobuf::int32 value);
 
-  // repeated .killer.proto.Position vertices = 4;
+  // repeated .killer.proto.Vector3 vertices = 4;
   inline int vertices_size() const;
   inline void clear_vertices();
   static const int kVerticesFieldNumber = 4;
-  inline const ::killer::proto::Position& vertices(int index) const;
-  inline ::killer::proto::Position* mutable_vertices(int index);
-  inline ::killer::proto::Position* add_vertices();
-  inline const ::google::protobuf::RepeatedPtrField< ::killer::proto::Position >&
+  inline const ::killer::proto::Vector3& vertices(int index) const;
+  inline ::killer::proto::Vector3* mutable_vertices(int index);
+  inline ::killer::proto::Vector3* add_vertices();
+  inline const ::google::protobuf::RepeatedPtrField< ::killer::proto::Vector3 >&
       vertices() const;
-  inline ::google::protobuf::RepeatedPtrField< ::killer::proto::Position >*
+  inline ::google::protobuf::RepeatedPtrField< ::killer::proto::Vector3 >*
       mutable_vertices();
+
+  // optional .killer.proto.Vector4 rotation = 5;
+  inline bool has_rotation() const;
+  inline void clear_rotation();
+  static const int kRotationFieldNumber = 5;
+  inline const ::killer::proto::Vector4& rotation() const;
+  inline ::killer::proto::Vector4* mutable_rotation();
+  inline ::killer::proto::Vector4* release_rotation();
+  inline void set_allocated_rotation(::killer::proto::Vector4* rotation);
 
   // @@protoc_insertion_point(class_scope:killer.proto.U3DPhysxMesh)
  private:
@@ -767,6 +922,8 @@ class U3DPhysxMesh : public ::google::protobuf::Message {
   inline void clear_has_type();
   inline void set_has_vertex_count();
   inline void clear_has_vertex_count();
+  inline void set_has_rotation();
+  inline void clear_has_rotation();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -774,7 +931,8 @@ class U3DPhysxMesh : public ::google::protobuf::Message {
   mutable int _cached_size_;
   ::google::protobuf::int32 id_;
   int type_;
-  ::google::protobuf::RepeatedPtrField< ::killer::proto::Position > vertices_;
+  ::google::protobuf::RepeatedPtrField< ::killer::proto::Vector3 > vertices_;
+  ::killer::proto::Vector4* rotation_;
   ::google::protobuf::int32 vertex_count_;
   friend void  protobuf_AddDesc_Scene_2eproto();
   friend void protobuf_AssignDesc_Scene_2eproto();
@@ -788,78 +946,178 @@ class U3DPhysxMesh : public ::google::protobuf::Message {
 
 // ===================================================================
 
-// Position
+// Vector3
 
 // optional double x = 1 [default = 0];
-inline bool Position::has_x() const {
+inline bool Vector3::has_x() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Position::set_has_x() {
+inline void Vector3::set_has_x() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Position::clear_has_x() {
+inline void Vector3::clear_has_x() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Position::clear_x() {
+inline void Vector3::clear_x() {
   x_ = 0;
   clear_has_x();
 }
-inline double Position::x() const {
-  // @@protoc_insertion_point(field_get:killer.proto.Position.x)
+inline double Vector3::x() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector3.x)
   return x_;
 }
-inline void Position::set_x(double value) {
+inline void Vector3::set_x(double value) {
   set_has_x();
   x_ = value;
-  // @@protoc_insertion_point(field_set:killer.proto.Position.x)
+  // @@protoc_insertion_point(field_set:killer.proto.Vector3.x)
 }
 
 // optional double y = 2 [default = 0];
-inline bool Position::has_y() const {
+inline bool Vector3::has_y() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Position::set_has_y() {
+inline void Vector3::set_has_y() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void Position::clear_has_y() {
+inline void Vector3::clear_has_y() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void Position::clear_y() {
+inline void Vector3::clear_y() {
   y_ = 0;
   clear_has_y();
 }
-inline double Position::y() const {
-  // @@protoc_insertion_point(field_get:killer.proto.Position.y)
+inline double Vector3::y() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector3.y)
   return y_;
 }
-inline void Position::set_y(double value) {
+inline void Vector3::set_y(double value) {
   set_has_y();
   y_ = value;
-  // @@protoc_insertion_point(field_set:killer.proto.Position.y)
+  // @@protoc_insertion_point(field_set:killer.proto.Vector3.y)
 }
 
 // optional double z = 3 [default = 0];
-inline bool Position::has_z() const {
+inline bool Vector3::has_z() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Position::set_has_z() {
+inline void Vector3::set_has_z() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Position::clear_has_z() {
+inline void Vector3::clear_has_z() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Position::clear_z() {
+inline void Vector3::clear_z() {
   z_ = 0;
   clear_has_z();
 }
-inline double Position::z() const {
-  // @@protoc_insertion_point(field_get:killer.proto.Position.z)
+inline double Vector3::z() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector3.z)
   return z_;
 }
-inline void Position::set_z(double value) {
+inline void Vector3::set_z(double value) {
   set_has_z();
   z_ = value;
-  // @@protoc_insertion_point(field_set:killer.proto.Position.z)
+  // @@protoc_insertion_point(field_set:killer.proto.Vector3.z)
+}
+
+// -------------------------------------------------------------------
+
+// Vector4
+
+// optional double x = 1 [default = 0];
+inline bool Vector4::has_x() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Vector4::set_has_x() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Vector4::clear_has_x() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Vector4::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline double Vector4::x() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector4.x)
+  return x_;
+}
+inline void Vector4::set_x(double value) {
+  set_has_x();
+  x_ = value;
+  // @@protoc_insertion_point(field_set:killer.proto.Vector4.x)
+}
+
+// optional double y = 2 [default = 0];
+inline bool Vector4::has_y() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Vector4::set_has_y() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Vector4::clear_has_y() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Vector4::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline double Vector4::y() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector4.y)
+  return y_;
+}
+inline void Vector4::set_y(double value) {
+  set_has_y();
+  y_ = value;
+  // @@protoc_insertion_point(field_set:killer.proto.Vector4.y)
+}
+
+// optional double z = 3 [default = 0];
+inline bool Vector4::has_z() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Vector4::set_has_z() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Vector4::clear_has_z() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Vector4::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline double Vector4::z() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector4.z)
+  return z_;
+}
+inline void Vector4::set_z(double value) {
+  set_has_z();
+  z_ = value;
+  // @@protoc_insertion_point(field_set:killer.proto.Vector4.z)
+}
+
+// optional double w = 4 [default = 0];
+inline bool Vector4::has_w() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Vector4::set_has_w() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Vector4::clear_has_w() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Vector4::clear_w() {
+  w_ = 0;
+  clear_has_w();
+}
+inline double Vector4::w() const {
+  // @@protoc_insertion_point(field_get:killer.proto.Vector4.w)
+  return w_;
+}
+inline void Vector4::set_w(double value) {
+  set_has_w();
+  w_ = value;
+  // @@protoc_insertion_point(field_set:killer.proto.Vector4.w)
 }
 
 // -------------------------------------------------------------------
@@ -1139,7 +1397,7 @@ inline void U3DPhysxSphere::set_type(::killer::proto::ColliderType value) {
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxSphere.type)
 }
 
-// optional .killer.proto.Position pos = 3;
+// optional .killer.proto.Vector3 pos = 3;
 inline bool U3DPhysxSphere::has_pos() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1150,26 +1408,26 @@ inline void U3DPhysxSphere::clear_has_pos() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void U3DPhysxSphere::clear_pos() {
-  if (pos_ != NULL) pos_->::killer::proto::Position::Clear();
+  if (pos_ != NULL) pos_->::killer::proto::Vector3::Clear();
   clear_has_pos();
 }
-inline const ::killer::proto::Position& U3DPhysxSphere::pos() const {
+inline const ::killer::proto::Vector3& U3DPhysxSphere::pos() const {
   // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxSphere.pos)
   return pos_ != NULL ? *pos_ : *default_instance_->pos_;
 }
-inline ::killer::proto::Position* U3DPhysxSphere::mutable_pos() {
+inline ::killer::proto::Vector3* U3DPhysxSphere::mutable_pos() {
   set_has_pos();
-  if (pos_ == NULL) pos_ = new ::killer::proto::Position;
+  if (pos_ == NULL) pos_ = new ::killer::proto::Vector3;
   // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxSphere.pos)
   return pos_;
 }
-inline ::killer::proto::Position* U3DPhysxSphere::release_pos() {
+inline ::killer::proto::Vector3* U3DPhysxSphere::release_pos() {
   clear_has_pos();
-  ::killer::proto::Position* temp = pos_;
+  ::killer::proto::Vector3* temp = pos_;
   pos_ = NULL;
   return temp;
 }
-inline void U3DPhysxSphere::set_allocated_pos(::killer::proto::Position* pos) {
+inline void U3DPhysxSphere::set_allocated_pos(::killer::proto::Vector3* pos) {
   delete pos_;
   pos_ = pos;
   if (pos) {
@@ -1202,6 +1460,47 @@ inline void U3DPhysxSphere::set_radius(double value) {
   set_has_radius();
   radius_ = value;
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxSphere.radius)
+}
+
+// optional .killer.proto.Vector4 rotation = 5;
+inline bool U3DPhysxSphere::has_rotation() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void U3DPhysxSphere::set_has_rotation() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void U3DPhysxSphere::clear_has_rotation() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void U3DPhysxSphere::clear_rotation() {
+  if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
+  clear_has_rotation();
+}
+inline const ::killer::proto::Vector4& U3DPhysxSphere::rotation() const {
+  // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxSphere.rotation)
+  return rotation_ != NULL ? *rotation_ : *default_instance_->rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxSphere::mutable_rotation() {
+  set_has_rotation();
+  if (rotation_ == NULL) rotation_ = new ::killer::proto::Vector4;
+  // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxSphere.rotation)
+  return rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxSphere::release_rotation() {
+  clear_has_rotation();
+  ::killer::proto::Vector4* temp = rotation_;
+  rotation_ = NULL;
+  return temp;
+}
+inline void U3DPhysxSphere::set_allocated_rotation(::killer::proto::Vector4* rotation) {
+  delete rotation_;
+  rotation_ = rotation;
+  if (rotation) {
+    set_has_rotation();
+  } else {
+    clear_has_rotation();
+  }
+  // @@protoc_insertion_point(field_set_allocated:killer.proto.U3DPhysxSphere.rotation)
 }
 
 // -------------------------------------------------------------------
@@ -1257,7 +1556,7 @@ inline void U3DPhysxBox::set_type(::killer::proto::ColliderType value) {
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxBox.type)
 }
 
-// optional .killer.proto.Position pos = 3;
+// optional .killer.proto.Vector3 pos = 3;
 inline bool U3DPhysxBox::has_pos() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1268,26 +1567,26 @@ inline void U3DPhysxBox::clear_has_pos() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void U3DPhysxBox::clear_pos() {
-  if (pos_ != NULL) pos_->::killer::proto::Position::Clear();
+  if (pos_ != NULL) pos_->::killer::proto::Vector3::Clear();
   clear_has_pos();
 }
-inline const ::killer::proto::Position& U3DPhysxBox::pos() const {
+inline const ::killer::proto::Vector3& U3DPhysxBox::pos() const {
   // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxBox.pos)
   return pos_ != NULL ? *pos_ : *default_instance_->pos_;
 }
-inline ::killer::proto::Position* U3DPhysxBox::mutable_pos() {
+inline ::killer::proto::Vector3* U3DPhysxBox::mutable_pos() {
   set_has_pos();
-  if (pos_ == NULL) pos_ = new ::killer::proto::Position;
+  if (pos_ == NULL) pos_ = new ::killer::proto::Vector3;
   // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxBox.pos)
   return pos_;
 }
-inline ::killer::proto::Position* U3DPhysxBox::release_pos() {
+inline ::killer::proto::Vector3* U3DPhysxBox::release_pos() {
   clear_has_pos();
-  ::killer::proto::Position* temp = pos_;
+  ::killer::proto::Vector3* temp = pos_;
   pos_ = NULL;
   return temp;
 }
-inline void U3DPhysxBox::set_allocated_pos(::killer::proto::Position* pos) {
+inline void U3DPhysxBox::set_allocated_pos(::killer::proto::Vector3* pos) {
   delete pos_;
   pos_ = pos;
   if (pos) {
@@ -1370,6 +1669,47 @@ inline void U3DPhysxBox::set_z_extents(double value) {
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxBox.z_extents)
 }
 
+// optional .killer.proto.Vector4 rotation = 7;
+inline bool U3DPhysxBox::has_rotation() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void U3DPhysxBox::set_has_rotation() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void U3DPhysxBox::clear_has_rotation() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void U3DPhysxBox::clear_rotation() {
+  if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
+  clear_has_rotation();
+}
+inline const ::killer::proto::Vector4& U3DPhysxBox::rotation() const {
+  // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxBox.rotation)
+  return rotation_ != NULL ? *rotation_ : *default_instance_->rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxBox::mutable_rotation() {
+  set_has_rotation();
+  if (rotation_ == NULL) rotation_ = new ::killer::proto::Vector4;
+  // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxBox.rotation)
+  return rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxBox::release_rotation() {
+  clear_has_rotation();
+  ::killer::proto::Vector4* temp = rotation_;
+  rotation_ = NULL;
+  return temp;
+}
+inline void U3DPhysxBox::set_allocated_rotation(::killer::proto::Vector4* rotation) {
+  delete rotation_;
+  rotation_ = rotation;
+  if (rotation) {
+    set_has_rotation();
+  } else {
+    clear_has_rotation();
+  }
+  // @@protoc_insertion_point(field_set_allocated:killer.proto.U3DPhysxBox.rotation)
+}
+
 // -------------------------------------------------------------------
 
 // U3DPhysxCapsule
@@ -1423,7 +1763,7 @@ inline void U3DPhysxCapsule::set_type(::killer::proto::ColliderType value) {
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxCapsule.type)
 }
 
-// optional .killer.proto.Position pos = 3;
+// optional .killer.proto.Vector3 pos = 3;
 inline bool U3DPhysxCapsule::has_pos() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1434,26 +1774,26 @@ inline void U3DPhysxCapsule::clear_has_pos() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void U3DPhysxCapsule::clear_pos() {
-  if (pos_ != NULL) pos_->::killer::proto::Position::Clear();
+  if (pos_ != NULL) pos_->::killer::proto::Vector3::Clear();
   clear_has_pos();
 }
-inline const ::killer::proto::Position& U3DPhysxCapsule::pos() const {
+inline const ::killer::proto::Vector3& U3DPhysxCapsule::pos() const {
   // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxCapsule.pos)
   return pos_ != NULL ? *pos_ : *default_instance_->pos_;
 }
-inline ::killer::proto::Position* U3DPhysxCapsule::mutable_pos() {
+inline ::killer::proto::Vector3* U3DPhysxCapsule::mutable_pos() {
   set_has_pos();
-  if (pos_ == NULL) pos_ = new ::killer::proto::Position;
+  if (pos_ == NULL) pos_ = new ::killer::proto::Vector3;
   // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxCapsule.pos)
   return pos_;
 }
-inline ::killer::proto::Position* U3DPhysxCapsule::release_pos() {
+inline ::killer::proto::Vector3* U3DPhysxCapsule::release_pos() {
   clear_has_pos();
-  ::killer::proto::Position* temp = pos_;
+  ::killer::proto::Vector3* temp = pos_;
   pos_ = NULL;
   return temp;
 }
-inline void U3DPhysxCapsule::set_allocated_pos(::killer::proto::Position* pos) {
+inline void U3DPhysxCapsule::set_allocated_pos(::killer::proto::Vector3* pos) {
   delete pos_;
   pos_ = pos;
   if (pos) {
@@ -1510,6 +1850,47 @@ inline void U3DPhysxCapsule::set_height(double value) {
   set_has_height();
   height_ = value;
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxCapsule.height)
+}
+
+// optional .killer.proto.Vector4 rotation = 6;
+inline bool U3DPhysxCapsule::has_rotation() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void U3DPhysxCapsule::set_has_rotation() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void U3DPhysxCapsule::clear_has_rotation() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void U3DPhysxCapsule::clear_rotation() {
+  if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
+  clear_has_rotation();
+}
+inline const ::killer::proto::Vector4& U3DPhysxCapsule::rotation() const {
+  // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxCapsule.rotation)
+  return rotation_ != NULL ? *rotation_ : *default_instance_->rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxCapsule::mutable_rotation() {
+  set_has_rotation();
+  if (rotation_ == NULL) rotation_ = new ::killer::proto::Vector4;
+  // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxCapsule.rotation)
+  return rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxCapsule::release_rotation() {
+  clear_has_rotation();
+  ::killer::proto::Vector4* temp = rotation_;
+  rotation_ = NULL;
+  return temp;
+}
+inline void U3DPhysxCapsule::set_allocated_rotation(::killer::proto::Vector4* rotation) {
+  delete rotation_;
+  rotation_ = rotation;
+  if (rotation) {
+    set_has_rotation();
+  } else {
+    clear_has_rotation();
+  }
+  // @@protoc_insertion_point(field_set_allocated:killer.proto.U3DPhysxCapsule.rotation)
 }
 
 // -------------------------------------------------------------------
@@ -1589,34 +1970,75 @@ inline void U3DPhysxMesh::set_vertex_count(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:killer.proto.U3DPhysxMesh.vertex_count)
 }
 
-// repeated .killer.proto.Position vertices = 4;
+// repeated .killer.proto.Vector3 vertices = 4;
 inline int U3DPhysxMesh::vertices_size() const {
   return vertices_.size();
 }
 inline void U3DPhysxMesh::clear_vertices() {
   vertices_.Clear();
 }
-inline const ::killer::proto::Position& U3DPhysxMesh::vertices(int index) const {
+inline const ::killer::proto::Vector3& U3DPhysxMesh::vertices(int index) const {
   // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxMesh.vertices)
   return vertices_.Get(index);
 }
-inline ::killer::proto::Position* U3DPhysxMesh::mutable_vertices(int index) {
+inline ::killer::proto::Vector3* U3DPhysxMesh::mutable_vertices(int index) {
   // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxMesh.vertices)
   return vertices_.Mutable(index);
 }
-inline ::killer::proto::Position* U3DPhysxMesh::add_vertices() {
+inline ::killer::proto::Vector3* U3DPhysxMesh::add_vertices() {
   // @@protoc_insertion_point(field_add:killer.proto.U3DPhysxMesh.vertices)
   return vertices_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::killer::proto::Position >&
+inline const ::google::protobuf::RepeatedPtrField< ::killer::proto::Vector3 >&
 U3DPhysxMesh::vertices() const {
   // @@protoc_insertion_point(field_list:killer.proto.U3DPhysxMesh.vertices)
   return vertices_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::killer::proto::Position >*
+inline ::google::protobuf::RepeatedPtrField< ::killer::proto::Vector3 >*
 U3DPhysxMesh::mutable_vertices() {
   // @@protoc_insertion_point(field_mutable_list:killer.proto.U3DPhysxMesh.vertices)
   return &vertices_;
+}
+
+// optional .killer.proto.Vector4 rotation = 5;
+inline bool U3DPhysxMesh::has_rotation() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void U3DPhysxMesh::set_has_rotation() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void U3DPhysxMesh::clear_has_rotation() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void U3DPhysxMesh::clear_rotation() {
+  if (rotation_ != NULL) rotation_->::killer::proto::Vector4::Clear();
+  clear_has_rotation();
+}
+inline const ::killer::proto::Vector4& U3DPhysxMesh::rotation() const {
+  // @@protoc_insertion_point(field_get:killer.proto.U3DPhysxMesh.rotation)
+  return rotation_ != NULL ? *rotation_ : *default_instance_->rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxMesh::mutable_rotation() {
+  set_has_rotation();
+  if (rotation_ == NULL) rotation_ = new ::killer::proto::Vector4;
+  // @@protoc_insertion_point(field_mutable:killer.proto.U3DPhysxMesh.rotation)
+  return rotation_;
+}
+inline ::killer::proto::Vector4* U3DPhysxMesh::release_rotation() {
+  clear_has_rotation();
+  ::killer::proto::Vector4* temp = rotation_;
+  rotation_ = NULL;
+  return temp;
+}
+inline void U3DPhysxMesh::set_allocated_rotation(::killer::proto::Vector4* rotation) {
+  delete rotation_;
+  rotation_ = rotation;
+  if (rotation) {
+    set_has_rotation();
+  } else {
+    clear_has_rotation();
+  }
+  // @@protoc_insertion_point(field_set_allocated:killer.proto.U3DPhysxMesh.rotation)
 }
 
 

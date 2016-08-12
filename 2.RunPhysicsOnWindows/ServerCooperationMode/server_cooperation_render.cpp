@@ -64,6 +64,8 @@ namespace
 		}
 
 		PhysicsSceneRender::FinishRender();
+
+		//TODO: 在这里添加绘制坐标轴
 	}
 
 	void ExitCallback(void)

@@ -10,10 +10,10 @@
 // Generated from: Scene.proto
 namespace killer.proto
 {
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Position")]
-  public partial class Position : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Vector3")]
+  public partial class Vector3 : global::ProtoBuf.IExtensible
   {
-    public Position() {}
+    public Vector3() {}
     
     private double _x = (double)0;
     [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"x", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
@@ -38,6 +38,48 @@ namespace killer.proto
     {
       get { return _z; }
       set { _z = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Vector4")]
+  public partial class Vector4 : global::ProtoBuf.IExtensible
+  {
+    public Vector4() {}
+    
+    private double _x = (double)0;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"x", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue((double)0)]
+    public double x
+    {
+      get { return _x; }
+      set { _x = value; }
+    }
+    private double _y = (double)0;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"y", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue((double)0)]
+    public double y
+    {
+      get { return _y; }
+      set { _y = value; }
+    }
+    private double _z = (double)0;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"z", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue((double)0)]
+    public double z
+    {
+      get { return _z; }
+      set { _z = value; }
+    }
+    private double _w = (double)0;
+    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"w", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue((double)0)]
+    public double w
+    {
+      get { return _w; }
+      set { _w = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -119,10 +161,10 @@ namespace killer.proto
       get { return _type; }
       set { _type = value; }
     }
-    private killer.proto.Position _pos = null;
+    private killer.proto.Vector3 _pos = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"pos", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public killer.proto.Position pos
+    public killer.proto.Vector3 pos
     {
       get { return _pos; }
       set { _pos = value; }
@@ -134,6 +176,14 @@ namespace killer.proto
     {
       get { return _radius; }
       set { _radius = value; }
+    }
+    private killer.proto.Vector4 _rotation = null;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public killer.proto.Vector4 rotation
+    {
+      get { return _rotation; }
+      set { _rotation = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -161,10 +211,10 @@ namespace killer.proto
       get { return _type; }
       set { _type = value; }
     }
-    private killer.proto.Position _pos = null;
+    private killer.proto.Vector3 _pos = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"pos", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public killer.proto.Position pos
+    public killer.proto.Vector3 pos
     {
       get { return _pos; }
       set { _pos = value; }
@@ -193,6 +243,14 @@ namespace killer.proto
       get { return _z_extents; }
       set { _z_extents = value; }
     }
+    private killer.proto.Vector4 _rotation = null;
+    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public killer.proto.Vector4 rotation
+    {
+      get { return _rotation; }
+      set { _rotation = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -219,10 +277,10 @@ namespace killer.proto
       get { return _type; }
       set { _type = value; }
     }
-    private killer.proto.Position _pos = null;
+    private killer.proto.Vector3 _pos = null;
     [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"pos", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
-    public killer.proto.Position pos
+    public killer.proto.Vector3 pos
     {
       get { return _pos; }
       set { _pos = value; }
@@ -242,6 +300,14 @@ namespace killer.proto
     {
       get { return _height; }
       set { _height = value; }
+    }
+    private killer.proto.Vector4 _rotation = null;
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public killer.proto.Vector4 rotation
+    {
+      get { return _rotation; }
+      set { _rotation = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -277,13 +343,21 @@ namespace killer.proto
       get { return _vertex_count; }
       set { _vertex_count = value; }
     }
-    private readonly global::System.Collections.Generic.List<killer.proto.Position> _vertices = new global::System.Collections.Generic.List<killer.proto.Position>();
+    private readonly global::System.Collections.Generic.List<killer.proto.Vector3> _vertices = new global::System.Collections.Generic.List<killer.proto.Vector3>();
     [global::ProtoBuf.ProtoMember(4, Name=@"vertices", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<killer.proto.Position> vertices
+    public global::System.Collections.Generic.List<killer.proto.Vector3> vertices
     {
       get { return _vertices; }
     }
   
+    private killer.proto.Vector4 _rotation = null;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public killer.proto.Vector4 rotation
+    {
+      get { return _rotation; }
+      set { _rotation = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
