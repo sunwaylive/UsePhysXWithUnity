@@ -1,32 +1,9 @@
-﻿生成启动时间为 2016/9/14 15:36:20。
-     1>项目“F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\ServerCooperationMode\ServerCooperationMode.vcxproj”在节点 2 上(Build 个目标)。
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D _SCL_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt physics_scene_manager.cpp
-         physics_scene_manager.cpp
-     1>physics_scene_manager.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-     1>physics_scene_manager.cpp(14): warning C4244: “=”: 从“float”转换到“int”，可能丢失数据
-     1>physics_scene_manager.cpp(154): warning C4244: “-=”: 从“float”转换到“int”，可能丢失数据
-     1>physics_scene_manager.cpp(154): warning C4244: “参数”: 从“int”转换到“physx::PxReal”，可能丢失数据
-     1>physics_scene_manager.cpp(169): warning C4244: “参数”: 从“double”转换到“physx::PxReal”，可能丢失数据
-     1>physics_scene_manager.cpp(240): warning C4018: “<”: 有符号/无符号不匹配
-     1>physics_scene_manager.cpp(242): warning C4018: “<”: 有符号/无符号不匹配
-     1>physics_scene_manager.cpp(274): warning C4244: “参数”: 从“double”转换到“physx::PxReal”，可能丢失数据
-     1>physics_scene_manager.cpp(302): warning C4244: “参数”: 从“double”转换到“physx::PxReal”，可能丢失数据
-     1>physics_scene_manager.cpp(323): warning C4244: “参数”: 从“double”转换到“physx::PxReal”，可能丢失数据
-     1>physics_scene_manager.cpp(407): warning C4244: “-=”: 从“float”转换到“int”，可能丢失数据
-     1>physics_scene_manager.cpp(407): warning C4244: “参数”: 从“int”转换到“physx::PxReal”，可能丢失数据
-     1>physics_scene_manager.cpp(410): warning C4305: “参数”: 从“double”到“physx::PxF32”截断
-     1>physics_scene_manager.cpp(411): warning C4305: “参数”: 从“double”到“physx::PxF32”截断
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\x64\Debug\ServerCooperationMode.exe" /INCREMENTAL /NOLOGO PhysX3DEBUG_x64.lib PhysX3CommonDEBUG_x64.lib PhysX3CookingDEBUG_x64.lib PhysXProfileSDKDEBUG.lib PhysX3ExtensionsDEBUG.lib PhysXVisualDebuggerSDKDEBUG.lib libprotobuf.lib PhysX3CharacterKinematicDEBUG_x64.lib PxToolkitDEBUG.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\x64\Debug\ServerCooperationMode.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\x64\Debug\ServerCooperationMode.lib" /MACHINE:X64 x64\Debug\Scene.pb.obj
-         x64\Debug\main.obj
-         x64\Debug\physics_scene_camera.obj
-         x64\Debug\physics_scene_manager.obj
-         x64\Debug\physics_scene_render.obj
-         x64\Debug\server_cooperation_render.obj
-         ServerCooperationMode.vcxproj -> F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\x64\Debug\ServerCooperationMode.exe
+﻿生成启动时间为 2016/9/14 16:10:58。
+     1>项目“F:\PhysX\UsePhysXWithUnity\2.RunPhysicsOnWindows_ProtoV3\ServerCooperationMode\ServerCooperationMode.vcxproj”在节点 2 上(Build 个目标)。
+     1>Link:
+         ServerCooperationMode.vcxproj -> F:\PhysX\UsePhysXWithUnity\2.RunPhysicsOnWindows_ProtoV3\x64\Debug\ServerCooperationMode.exe
        PostBuildEvent:
-         copy  ..\bin\*.* F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\x64\Debug\
+         copy  ..\bin\*.* F:\PhysX\UsePhysXWithUnity\2.RunPhysicsOnWindows_ProtoV3\x64\Debug\
          :VCEnd
          ..\bin\freeglut.dll
          ..\bin\glut32.dll
@@ -45,8 +22,8 @@
          ..\bin\PhysX3_x64.dll
          ..\bin\PhysXDevice64.dll
          已复制        16 个文件。
-     1>已完成生成项目“F:\UsePhysXWithUnity-master\2.RunPhysicsOnWindows\ServerCooperationMode\ServerCooperationMode.vcxproj”(Build 个目标)的操作。
+     1>已完成生成项目“F:\PhysX\UsePhysXWithUnity\2.RunPhysicsOnWindows_ProtoV3\ServerCooperationMode\ServerCooperationMode.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:03.36
+已用时间 00:00:00.16
