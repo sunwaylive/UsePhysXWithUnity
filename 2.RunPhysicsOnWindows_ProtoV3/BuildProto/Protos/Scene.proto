@@ -1,0 +1,73 @@
+package killer.proto;
+
+enum ColliderType
+{
+	BOX     = 1;
+	SPHERE  = 2;
+	CAPSULE = 3;
+	MESH    = 4;
+}
+
+message Vector3
+{
+	optional double x = 1 [default = 0];
+	optional double y = 2 [default = 0];
+	optional double z = 3 [default = 0];
+}
+
+message Vector4
+{
+	optional double x = 1 [default = 0];
+	optional double y = 2 [default = 0];
+	optional double z = 3 [default = 0];
+	optional double w = 4 [default = 0];
+}
+
+message U3DPhysxScene
+{
+	optional int32 id                         = 1;
+	optional string scene_name                = 2;
+	repeated U3DPhysxBox box_collider         = 3;
+	repeated U3DPhysxSphere sphere_collider   = 4;
+	repeated U3DPhysxCapsule capsule_collider = 5;
+	repeated U3DPhysxMesh mesh_collider       = 6;
+}
+
+message U3DPhysxSphere
+{
+	optional int32 id          = 1;
+	optional ColliderType type = 2;
+	optional Vector3 pos       = 3;
+	optional double radius     = 4;
+	optional Vector4 rotation  = 5;
+}
+
+message U3DPhysxBox
+{
+	optional int32 id          = 1;
+	optional ColliderType type = 2;
+	optional Vector3 pos       = 3;
+	optional double x_extents  = 4;
+	optional double y_extents  = 5;
+	optional double z_extents  = 6;
+	optional Vector4 rotation  = 7;
+}
+
+message U3DPhysxCapsule
+{
+	optional int32 id          = 1;
+	optional ColliderType type = 2;
+	optional Vector3 pos       = 3;
+	optional double raduis     = 4;
+	optional double height     = 5;
+	optional Vector4 rotation  = 6;
+}
+
+message U3DPhysxMesh
+{
+	optional int32 id           = 1;
+	optional ColliderType type  = 2;
+	optional int32 vertex_count = 3;
+	repeated Vector3 vertices   = 4;
+	optional Vector4 rotation   = 5;
+}
